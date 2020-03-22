@@ -11,5 +11,4 @@ class RestaurantController extends Controller
         $comments  = $restaurant->comments->where('status','=','1');
         return view('restaurant',compact('restaurant','comments'));
     }
-
 }

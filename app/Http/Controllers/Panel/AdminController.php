@@ -47,6 +47,8 @@ class AdminController extends Controller
             'role_id' => 'required'
         ]);
 
+        $user = User::find($request->input('user_id'));
+        $user->update(['role'=>'admin']);
         User::find($request->input('user_id'))->roles()->sync($request->input('role_id'));
         return redirect(route('admin.index'));
     }

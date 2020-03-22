@@ -1,13 +1,13 @@
 @extends('panel.layouts.base')
 
-@section('script')
-    <script>
-      $(document).ready(function () {
-        $('#user_id').selectpicker();
-        $('#role_id').selectpicker();
-      })
-    </script>
-@endsection
+{{--@section('script')--}}
+    {{--<script>--}}
+      {{--$(document).ready(function () {--}}
+        {{--$('#user_id').selectpicker();--}}
+        {{--// $('#role_id').selectpicker();--}}
+      {{--})--}}
+    {{--</script>--}}
+{{--@endsection--}}
 
 
 @section('content')
@@ -22,7 +22,7 @@
                 <div class="col-sm-12">
                     <label for="user_id" class="control-label">کاربران</label>
                     <select class="form-control" name="user_id" id="user_id" data-live-search="true">
-                        @foreach(\App\User::whereRole('admin')->get() as $user)
+                        @foreach(\App\User::all() as $user)
                             <option value="{{ $user->id }}">{{ $user->name }}</option>
                         @endforeach
                     </select>
