@@ -49,6 +49,11 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 |
 */
 
+//$app->bind('path.public', function() {  //todo if run on host
+//    return __DIR__;
+//});
+
+
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
 $response = $kernel->handle(

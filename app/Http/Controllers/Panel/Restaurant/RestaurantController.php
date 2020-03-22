@@ -30,6 +30,7 @@ class RestaurantController extends ImagesController
      */
     public function create()
     {
+
         return view('panel.restaurants.create');
     }
 
@@ -41,6 +42,7 @@ class RestaurantController extends ImagesController
      */
     public function store(Request $request)
     {
+
         $year = Carbon::now()->year;
         $month = Carbon::now()->month;
         $day = Carbon::now()->day;

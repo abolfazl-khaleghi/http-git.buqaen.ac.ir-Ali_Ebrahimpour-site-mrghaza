@@ -15,10 +15,9 @@ class CreateServantsTable extends Migration
     {
         Schema::create('servants', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('shaba')->nullable();  //todo check 0 in first if not string
-            $table->integer('codeMelli')->nullable();
-            $table->integer('cardNumber')->nullable();
-
+            $table->string('shaba')->nullable();  //todo check 0 in first if not string
+            $table->string('cardNumber')->nullable();
+            $table->string('codeMelli')->nullable();
 
             $table->unsignedBigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
