@@ -1,0 +1,183 @@
+html,
+body {
+  height: 100%;
+}
+
+/* index-slider */
+#index-slider {
+  visibility: visible;
+  padding: 5px;
+  overflow: hidden;
+  height: calc(100% - 90px);
+  width: 100%;
+}
+
+#index-slider .slide {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#index-slider .slide > img {
+  width: 100%;
+  bottom: 0;
+}
+
+@media (min-width: 768px) {
+  form.download {
+    bottom: 180px;
+    right: 100px;
+    width: 40%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  form.download {
+    top: 0;
+    right: 0;
+    width: 100%;
+  }
+}
+
+#go-down {
+  left: calc(50% - 30px);
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  color: white;
+  padding: 15px;
+  background: none;
+  transition: all 0.3s;
+}
+
+#go-down:hover {
+  background: #98dbc6;
+}
+
+#go-down:focus {
+  outline: none;
+}
+
+/* suggestions */
+#suggestions {
+  background-image: url("/images/pattern/2.jpg");
+  box-shadow: inset 0 0 10px 0 #f18d9e;
+  margin: 5px -10px;
+  border-radius: 3px;
+  padding: 0 0 45px 0;
+}
+
+.suggestions-title {
+  color: white;
+}
+
+/* suggestion-slider */
+#suggestion-slider {
+  margin: 25px 0 0 0;
+}
+
+#suggestion-slider .slide {
+  display: flex;
+  justify-content: center;
+}
+
+#suggestion-slider .card {
+  border: none;
+  width: 95%;
+}
+
+#suggestion-slider img {
+  padding: 10px;
+  height: 128px;
+  width: 128px;
+}
+
+/* banners */
+#banners {
+  margin: 5px -10px;
+}
+
+
+/* banner-slider */
+#banner-slider {
+  margin: 25px 0 25px 0;
+}
+
+#banner-slider .slide {
+  display: flex;
+  justify-content: center;
+}
+
+#banner-slider .card {
+  border: none;
+  width: 95%;
+}
+
+#banner-slider img {
+  padding: 10px;
+  height: 128px;
+  width: 128px;
+}
+
+/* today-restaurants */
+#today-restaurants {
+  background-image: url("/images/pattern/3.jpg");
+  box-shadow: inset 0 0 10px 0 #f18d9e;
+  margin: 5px -10px;
+  border-radius: 3px;
+  padding: 0 0 45px 0;
+}
+
+.today-restaurants-title {
+  color: white;
+}
+
+/* today-restaurant-slider */
+#today-restaurant-slider {
+  margin: 25px 0 0 0;
+}
+
+#today-restaurant-slider .slide {
+  display: flex;
+  justify-content: center;
+}
+
+#today-restaurant-slider .card {
+  border: none;
+  width: 95%;
+}
+
+#today-restaurant-slider img {
+  padding: 10px;
+  height: 128px;
+  width: 128px;
+}
+
+/* all-restaurants */
+#all-restaurants {
+  padding: 0 0 45px 0;
+}
+
+.all-restaurants-title {
+  color: black;
+}
+
+/* all-restaurant-slider */
+#all-restaurant-slider {
+  margin: 25px 0 0 0;
+}
+
+#all-restaurant-slider .slide {
+  display: flex;
+  justify-content: center;
+}
+
+#all-restaurant-slider .card {
+  width: 95%;
+}
+
+#all-restaurant-slider img {
+  padding: 10px;
+  height: 128px;
+  width: 128px;
+}

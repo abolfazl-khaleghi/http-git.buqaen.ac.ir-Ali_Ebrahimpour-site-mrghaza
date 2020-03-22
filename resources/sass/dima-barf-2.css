@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'DimaBarf2';
+    src: url('/font/dimabarf2/DimaBarf2.woff') format('woff');
+}
+
+.dima-barf-2 {
+    font-family: DimaBarf2;
+}

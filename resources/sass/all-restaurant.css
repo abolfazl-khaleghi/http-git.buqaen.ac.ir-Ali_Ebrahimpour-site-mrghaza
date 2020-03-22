@@ -1,0 +1,37 @@
+/* main img */
+#main-img img {
+  max-height: 555px;
+}
+
+@media (min-width: 768px) {
+  #search-form {
+    margin: 200px auto 0 auto;
+    top: 0;
+    right: 5px;
+    left: 5px;
+    background: #00000080;
+    position: absolute;
+  }
+
+  #search-form .search-btn {
+    border-radius: 50%;
+  }
+}
+
+.search-btn-container {
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  #search-form {
+    margin: 0 auto 0 auto;
+    top: 0;
+    right: 5px;
+    left: 5px;
+    position: absolute;
+  }
+
+  #search-form .search-btn {
+    width: 100%;
+  }
+}

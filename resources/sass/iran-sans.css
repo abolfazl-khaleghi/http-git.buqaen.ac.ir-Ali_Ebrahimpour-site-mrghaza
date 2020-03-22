@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'IRANSans_Num';
+    src: url('/font/iransans/num/Num.ttf') format('truetype'),
+    url('/font/iransans/num/eot/Num.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'IRANSans_Num_Black';
+    src: url('/font/iransans/num/Num_Black.ttf') format('truetype'),
+    url('/font/iransans/num/eot/Num_Black.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'IRANSans_Num_Bold';
+    src: url('/font/iransans/num/Num_Bold.ttf') format('truetype'),
+    url('/iransans/num/eot/Num_Bold.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'IRANSans_Num_Light';
+    src: url('/font/iransans/num/Num_Light.ttf') format('truetype'),
+    url('/iransans/num/eot/Num_Light.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'IRANSans_Num_Medium';
+    src: url('/font/iransans/num/Num_Medium.ttf') format('truetype'),
+    url('/font/iransans/num/eot/Num_Medium.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'IRANSans_Num_UltraLight';
+    src: url('/font/iransans/num/Num_UltraLight.ttf') format('truetype'),
+    url('/font/iransans/num/eot/Num_UltraLight.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'IRANSans_Web';
+    src: url('/font/iransans/web/Web.ttf') format('truetype'),
+    url('/font/iransans/web/eot/Web.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'IRANSans_Web_Black';
+    src: url('/font/iransans/web/Web_Black.ttf') format('truetype'),
+    url('/font/iransans/web/eot/Web_Black.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'IRANSans_Web_Bold';
+    src: url('/font/iransans/web/Web_Bold.ttf') format('truetype'),
+    url('/font/iransans/Web/eot/web_Bold.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'IRANSans_Web_Light';
+    src: url('/font/iransans/web/Web_Light.ttf') format('truetype'),
+    url('/font/iransans/web/eot/Web_Light.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'IRANSans_Web_Medium';
+    src: url('/font/iransans/web/Web_Medium.ttf') format('truetype'),
+    url('/font/iransans/web/eot/Web_Medium.eot?#iefix') format('embedded-opentype');
+}
+
+@font-face {
+    font-family: 'IRANSans_Web_UltraLight';
+    src: url('/font/iransans/web/Web_UltraLight.ttf') format('truetype'),
+    url('/font/iransans/web/eot/Web_UltraLight.eot?#iefix') format('embedded-opentype');
+}
+
+
+* {
+    font-family: IRANSans_num, IRANSans_Web;
+}
