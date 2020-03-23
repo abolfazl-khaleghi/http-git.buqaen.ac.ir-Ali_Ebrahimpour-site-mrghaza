@@ -13,7 +13,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    {{--<img  src="<?= Url( $restaurant->menu )?>">--}}
+                    <img style="height: 900px;width:900px;"  src="<?= Url( $restaurant->menu )?>">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>

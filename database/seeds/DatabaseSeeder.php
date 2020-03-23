@@ -29,8 +29,15 @@ class DatabaseSeeder extends Seeder
         DB::table('guilds')->insert([
             'name' => Str::random(10),
         ]);
+        DB::table('servants')->insert([
+            'shaba' => Str::random(10),
+            'user_id' => 1,
+            'city_id' => 1,
+
+        ]);
         DB::table('restaurants')->insert([
             'name' => Str::random(10),
+            'slug' => Str::random(10),
             'title' => Str::random(10),
             'description' => Str::random(10),
             'designerComment' => Str::random(10),
@@ -39,6 +46,7 @@ class DatabaseSeeder extends Seeder
             'location' => Str::random(10),
             'guild_id' => 1,
             'city_id' => 1,
+            'servant_id' => 1,
         ]);
         DB::table('pages')->insert([
             'name' => Str::random(10),

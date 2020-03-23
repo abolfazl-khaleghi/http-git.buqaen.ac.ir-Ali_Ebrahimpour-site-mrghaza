@@ -9,4 +9,10 @@ class Servant extends Model
     protected $fillable=[
         'shaba','codeMelli','cardNumber','user_id','city_id',
     ];
+
+    public function restaurant()
+    {
+        return $this->hasMany(Restaurant::class);
+    }
+
 }

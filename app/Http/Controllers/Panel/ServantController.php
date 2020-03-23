@@ -48,6 +48,7 @@ class ServantController extends Controller
                 'enabled' => 0,
                 'email' => $request->email,
                 'mobile' => $request->mobile,
+                'phone' => $request->phone,
                 'sex' => $request->sex,
                 'address' => $request->address,
                 'password' => Hash::make('123456'),

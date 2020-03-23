@@ -115,17 +115,17 @@
                     </div>
                 </div>
 
-
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class="form-group">
-                        <label for="phone" class="control-label">شماره تماس</label>
-                        <input type="number" class="form-control" name="phone" id="phone"
-                               placeholder="شماره تماس را وارد کنید"
-                               value="{{ old('phone') }}">
+                        <label for="picture" class="control-label">تصویر منتخب</label>
+                        <input type="file" class="form-control-file" name="picture" id="picture">
                     </div>
                 </div>
 
-                <div class="col-sm-5">
+
+
+
+                <div class="col-sm-2">
                     <div class="form-group">
                         <label for="guild_id" class="control-label">نوع صنف</label>
                         <select name="guild_id" class="form-control select2" style="width: 100%;">
@@ -136,7 +136,21 @@
                         </select>
                     </div>
                 </div>
+
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="servant_id" class="control-label">خدمت دهنده</label>
+                        <select name="servant_id" class="form-control select2" style="width: 100%;">
+                            @php $servants = \App\User::whereRole('servant')->get() @endphp
+                            @foreach($servants as $servant)
+                                <option value="{{$servant->id}}" selected="selected">{{$servant->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
             </div>
+
+
 
 
                 <div class="row">
@@ -153,13 +167,15 @@
                     </div>
                 </div>
 
-
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="picture" class="control-label">تصویر منتخب</label>
-                        <input type="file" class="form-control-file" name="picture" id="picture">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="phone" class="control-label">شماره تماس</label>
+                            <input type="number" class="form-control" name="phone" id="phone"
+                                   placeholder="شماره تماس را وارد کنید"
+                                   value="{{ old('phone') }}">
+                        </div>
                     </div>
-                </div>
+
 
             </div>
 

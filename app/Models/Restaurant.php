@@ -15,7 +15,7 @@ class Restaurant extends Model
         'description',
         'menu', 'designerComment', 'location',
         'address', 'phone', 'report', 'viewCount',
-        'commentCount', 'slider_id', 'guild_id', 'city_id'
+        'commentCount', 'slider_id', 'guild_id', 'city_id','servant_id'
     ];
     /**
      * Get all of the post's comments.
@@ -38,5 +38,11 @@ class Restaurant extends Model
     {
         $locale = app()->getLocale();
         return "/$locale/restaurant/$this->slug";
+    }
+
+
+    public function servant()
+    {
+        return $this->belongsTo(Servant::class);
     }
 }

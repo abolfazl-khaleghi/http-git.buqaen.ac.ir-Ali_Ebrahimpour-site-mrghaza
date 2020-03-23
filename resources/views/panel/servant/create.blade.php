@@ -81,12 +81,12 @@
 
             <div class="row">
 
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="form-group">
-                        <label for="birthday" class="control-label">تاریخ تولد</label>
-                        <input type="text" class="form-control birthday" name="birthday"
-                               placeholder="تاریخ تولد را وارد کنید"
-                               value="{{ old('birthday') }}">
+                        <label for="phone" class="control-label">شماره تلفن ثابت</label>
+                        <input type="number" class="form-control" name="phone" id="phone"
+                               placeholder="شماره تلفن ثابت را وارد کنید"
+                               value="{{ old('phone') }}">
                     </div>
                 </div>
 
@@ -100,7 +100,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label for="cardNumber" class="control-label">شماره کارت</label>
                         <input type="number" class="form-control" name="cardNumber" id="cardNumber"

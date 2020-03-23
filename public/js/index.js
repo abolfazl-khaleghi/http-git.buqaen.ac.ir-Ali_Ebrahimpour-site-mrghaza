@@ -79,7 +79,7 @@ function initilizeSuggestionSlider() {
                         <div class="card-body text-center">
                             <h5 class="card-title">${slide.title}</h5>
                             <p class="card-text">${slide.content}</p>
-                            <a href="#" class="btn btn-primary btn-sm">اطلاعات بیشتر</a>
+                            <a href="#" class="btn btn-primary btn-sm">مشاهده</a>
                         </div>
                     </div>
                 </div>
@@ -162,7 +162,7 @@ function initilizeBannerSlider() {
                         <div class="card-body text-center">
                             <h5 class="card-title">${slide.title}</h5>
                             <p class="card-text">${slide.content}</p>
-                            <a href="#" class="btn btn-primary btn-sm">اطلاعات بیشتر</a>
+                            <a href="#" class="btn btn-primary btn-sm">مشاهده</a>
                         </div>
                     </div>
                 </div>
@@ -207,7 +207,7 @@ function initilizeTodayRestaurantSlider(list) {
                         <div class="card-body text-center">
                             <h5 class="card-title">${slide.title}</h5>
                             <p class="card-text">${slide.content}</p>
-                            <a href="${slide.link}" class="btn btn-primary btn-sm">اطلاعات بیشتر</a>
+                            <a href="${slide.link}" class="btn btn-primary btn-sm">مشاهده</a>
                         </div>
                     </div>
                 </div>
@@ -272,7 +272,7 @@ function initilizeAllRestaurantSlider(list) {
                         <div class="card-body text-center">
                             <h5 class="card-title">${slide.title}</h5>
                             <p class="card-text">${slide.content}</p>
-                            <a href="#" class="btn btn-primary btn-sm">اطلاعات بیشتر</a>
+                            <a href="#" class="btn btn-primary btn-sm">مشاهده</a>
                         </div>
                     </div>
                 </div>

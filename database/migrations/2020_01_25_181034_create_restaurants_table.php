@@ -39,6 +39,10 @@ class CreateRestaurantsTable extends Migration
             $table->unsignedBigInteger('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities')->onUpdate('cascade')->onDelete('cascade');
 
+            $table->unsignedBigInteger('servant_id')->unsigned();
+            $table->foreign('servant_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+
+
             $table->timestamps();
         });
     }

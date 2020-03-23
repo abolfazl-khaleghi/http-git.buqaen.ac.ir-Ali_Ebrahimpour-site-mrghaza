@@ -18,7 +18,7 @@ class RestaurantController extends ImagesController
      */
     public function index()
     {
-        $restaurants = Restaurant::paginate(5);
+        $restaurants = Restaurant::with('servant')->paginate(5);
         return view('panel.restaurants.all', compact('restaurants'));
 
     }
@@ -73,6 +73,7 @@ class RestaurantController extends ImagesController
             'phone' => $request->phone,
             'guild_id' => $request->guild_id,
             'city_id' => $request->city_id,
+            'servant_id' => $request->servant_id,
             'slug' => '1'
         ]);
 

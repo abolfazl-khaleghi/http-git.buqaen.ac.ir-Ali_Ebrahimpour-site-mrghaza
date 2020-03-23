@@ -33,7 +33,7 @@ function initilizeSimilarSlider() {
                         <div class="card-body text-center">
                             <h5 class="card-title">${slide.title}</h5>
                             <p class="card-text">${slide.content}</p>
-                            <a href="#" class="btn btn-primary btn-sm">Go somewhere</a>
+                            <a href="#" class="btn btn-primary btn-sm">مشاهده</a>
                         </div>
                     </div>
                 </div>
