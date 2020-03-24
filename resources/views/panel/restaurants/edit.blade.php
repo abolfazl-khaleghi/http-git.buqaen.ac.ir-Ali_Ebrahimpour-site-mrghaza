@@ -117,23 +117,35 @@
                     </div>
                 </div>
 
-
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class="form-group">
-                        <label for="phone" class="control-label">شماره تماس</label>
-                        <input type="number" class="form-control" name="phone" id="phone"
-                               placeholder="شماره تماس را وارد کنید"
-                               value="{{ $restaurant->phone }}">
+                        <label for="picture" class="control-label">تصویر منتخب</label>
+                        <input type="file" class="form-control-file" name="picture" id="picture">
                     </div>
                 </div>
 
-                <div class="col-sm-5">
+
+
+
+                <div class="col-sm-2">
                     <div class="form-group">
                         <label for="guild_id" class="control-label">نوع صنف</label>
                         <select name="guild_id" class="form-control select2" style="width: 100%;">
                             @php $guilds = \App\Models\Guild::all() @endphp
                             @foreach($guilds as $guild)
                                 <option value="{{$guild->id}}" selected="selected">{{$guild->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="servant_id" class="control-label">خدمت دهنده</label>
+                        <select name="servant_id" class="form-control select2" style="width: 100%;">
+                            @php $servants = \App\User::whereRole('servant')->get() @endphp
+                            @foreach($servants as $servant)
+                                <option value="{{$servant->id}}" selected="selected">{{$servant->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -154,13 +166,32 @@
                     </div>
                 </div>
 
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="phone" class="control-label">شماره تماس</label>
+                        <input type="number" class="form-control" name="phone" id="phone"
+                               placeholder="شماره تماس را وارد کنید"
+                               value="{{ $restaurant->phone }}">
+                    </div>
+                </div>
 
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label for="picture" class="control-label">تصویر منتخب</label>
-                        <input type="file" class="form-control-file" name="picture" id="picture">
+                        <label for="hour" class="control-label">ساعت سرویس دهی</label>
+                        <input type="text" class="form-control" name="hour" id="hour"
+                               placeholder="ساعت سرویس دهی را وارد کنید"
+                               value="{{ $restaurant->hour }}">
                     </div>
                 </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="day" class="control-label">روزهای سرویس دهی</label>
+                        <input type="text" class="form-control" name="day" id="day"
+                               placeholder="روزهای سرویس دهی را وارد کنید"
+                               value="{{ $restaurant->day }}">
+                    </div>
+                </div>
+
             </div>
 
             <div class="form-group">

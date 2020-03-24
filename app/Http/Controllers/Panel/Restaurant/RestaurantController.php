@@ -74,7 +74,9 @@ class RestaurantController extends ImagesController
             'guild_id' => $request->guild_id,
             'city_id' => $request->city_id,
             'servant_id' => $request->servant_id,
-            'slug' => '1'
+            'slug' => $request->restaurantName,
+            'day' => $request->day,
+            'hour' => $request->hour,
         ]);
 
 //        $member = Member::updateOrCreate([

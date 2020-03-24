@@ -31,19 +31,19 @@
             <div class="col-md-4">
                 <div class="bg-white border rounded-xlg p-3 dir-rtl text-right shadow-sm" style="font-size: 0.85rem;">
           <span>{{$restaurant->name}}
-            <a href="#">(مشاهده صفحه فروشنده)</a>
+            {{--<a href="{{base_path()}}">(مشاهده صفحه فروشنده)</a>--}}
           </span>
 
                     <div class="border-bottom pr-0 py-4 row">
                         <div class="col-md-6">
                             <img src="<?= Url('images/svg/time.svg')?>" class="ml-2"
                                  style="height: 24px; opacity: 25%;">ساعت سرویس‌دهی:
-                            <br>با هماهنگی
+                            <br>{{$restaurant->hour}}
                         </div>
                         <div class="col-md-6">
                             <img src="<?= Url('images/svg/calendar.svg')?>" class="ml-2"
                                  style="height: 24px; opacity: 25%;">روزهای سرویس‌دهی:
-                            <br>با هماهنگی
+                            <br>{{$restaurant->day}}
                         </div>
                     </div>
 

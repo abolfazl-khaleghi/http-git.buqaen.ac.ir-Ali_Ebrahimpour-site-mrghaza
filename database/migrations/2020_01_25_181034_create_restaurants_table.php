@@ -28,7 +28,9 @@ class CreateRestaurantsTable extends Migration
             $table->string('report')->default('0')->nullable();
             $table->integer('viewCount')->default(0);
             $table->integer('commentCount')->default(0);
-            $table->string('slug');
+            $table->string('slug')->nullable();
+            $table->string('day')->nullable();
+            $table->string('hour')->nullable();
 
             $table->unsignedBigInteger('slider_id')->unsigned()->nullable();
             $table->foreign('slider_id')->references('id')->on('sliders')->onUpdate('cascade')->onDelete('cascade');

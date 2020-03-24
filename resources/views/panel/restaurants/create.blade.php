@@ -13,10 +13,10 @@
     <!-- ckeditor -->
     <script src="<?= Url('plugins/ckeditor/ckeditor.js') ?>"></script>
     {{--<script>--}}
-      {{--CKEDITOR.replace('address', {--}}
-        {{--filebrowserUploadUrl: '/admin/panel/upload-image',--}}
-        {{--filebrowserImageUploadUrl: '/admin/panel/upload-image'--}}
-      {{--});--}}
+    {{--CKEDITOR.replace('address', {--}}
+    {{--filebrowserUploadUrl: '/admin/panel/upload-image',--}}
+    {{--filebrowserImageUploadUrl: '/admin/panel/upload-image'--}}
+    {{--});--}}
     {{--</script>--}}
     <script>
       CKEDITOR.replace('description', {
@@ -39,7 +39,7 @@
     <script src="<?= Url('dist/js/persian-date.min.js') ?>"></script>
     <script src="<?= Url('dist/js/persian-datepicker.min.js') ?>"></script>
     <script type="text/javascript">
-      $(document).ready(function() {
+      $(document).ready(function () {
         $(".birthday").pDatepicker({
           format: 'YYYY/MM/DD',
         });
@@ -52,7 +52,8 @@
         <div style="margin-bottom: 20px" class="page-header text-center head-section">
             <h2>ثبت رستوران جدید</h2>
         </div>
-        <form class="form-horizontal" action="{{route('restaurant.store')}}" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" action="{{route('restaurant.store')}}" method="post"
+              enctype="multipart/form-data">
             {{ csrf_field() }}
             @include('layouts.errors')
             <div class="row">
@@ -77,7 +78,6 @@
                                placeholder="مکان رستوران را وارد کنید" value="{{ old('location') }}">
                     </div>
                 </div>
-
 
 
             </div>
@@ -123,8 +123,6 @@
                 </div>
 
 
-
-
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="guild_id" class="control-label">نوع صنف</label>
@@ -151,9 +149,7 @@
             </div>
 
 
-
-
-                <div class="row">
+            <div class="row">
 
                 <div class="col-sm-2">
                     <div class="form-group">
@@ -167,14 +163,31 @@
                     </div>
                 </div>
 
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label for="phone" class="control-label">شماره تماس</label>
-                            <input type="number" class="form-control" name="phone" id="phone"
-                                   placeholder="شماره تماس را وارد کنید"
-                                   value="{{ old('phone') }}">
-                        </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="phone" class="control-label">شماره تماس</label>
+                        <input type="number" class="form-control" name="phone" id="phone"
+                               placeholder="شماره تماس را وارد کنید"
+                               value="{{ old('phone') }}">
                     </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="hour" class="control-label">ساعت سرویس دهی</label>
+                        <input type="text" class="form-control" name="hour" id="hour"
+                               placeholder="ساعت سرویس دهی را وارد کنید"
+                               value="{{ old('hour') }}">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="day" class="control-label">روزهای سرویس دهی</label>
+                        <input type="text" class="form-control" name="day" id="day"
+                               placeholder="روزهای سرویس دهی را وارد کنید"
+                               value="{{ old('day') }}">
+                    </div>
+                </div>
 
 
             </div>

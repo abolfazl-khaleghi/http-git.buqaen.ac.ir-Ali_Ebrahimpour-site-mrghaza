@@ -10,7 +10,7 @@ class Restaurant extends Model
     use Sluggable;
 
     protected $fillable = [
-        'name', 'title',
+        'name', 'title','day','hour',
         'slug','picture',
         'description',
         'menu', 'designerComment', 'location',
