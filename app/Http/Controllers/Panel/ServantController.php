@@ -86,7 +86,7 @@ class ServantController extends Controller
      */
     public function edit(Servant $servant)
     {
-        return view('panel.servant.edit',compact('servant'));
+        return view('panel.servant.edit', compact('servant'));
 
     }
 
@@ -99,7 +99,7 @@ class ServantController extends Controller
      */
     public function update(Request $request, Servant $servant)
     {
-        $user = \App\User::where('id',$servant->user_id)->first();
+        $user = \App\User::where('id', $servant->user_id)->first();
         $user->update($request->all());
         $servant->update($request->all());
 
@@ -132,6 +132,7 @@ class ServantController extends Controller
      */
     public function destroy(Servant $servant)
     {
+        User::whereId($servant->user_id)->delete();
         $servant->delete();
         return redirect()->back();
     }

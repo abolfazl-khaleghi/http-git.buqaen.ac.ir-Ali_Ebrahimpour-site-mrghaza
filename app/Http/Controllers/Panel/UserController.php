@@ -138,6 +138,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        Member::whereUser_id($user->id)->delete();
         $user->delete();
         return redirect()->back();  //todo fail it with sweet alert
     }

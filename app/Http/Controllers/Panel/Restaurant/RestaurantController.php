@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Panel\Restaurant;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Panel\ImagesController;
+use App\Models\Comment;
 use App\Models\Restaurant;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -42,7 +43,6 @@ class RestaurantController extends ImagesController
      */
     public function store(Request $request)
     {
-
         $year = Carbon::now()->year;
         $month = Carbon::now()->month;
         $day = Carbon::now()->day;
@@ -50,14 +50,13 @@ class RestaurantController extends ImagesController
 
         $menu = $request->file('menu');
         $filename = $menu->getClientOriginalName();
-        $menu = $menu->move(public_path($imagePath) , $filename);
-        $inputs['menu'] = $imagePath.$filename;
+        $menu = $menu->move(public_path($imagePath), $filename);
+        $inputs['menu'] = $imagePath . $filename;
 
         $picture = $request->file('picture');
         $pictureName = $picture->getClientOriginalName();
-        $picture = $picture->move(public_path($imagePath) , $pictureName);
-        $inputs['picture'] = $imagePath.$pictureName;
-
+        $picture = $picture->move(public_path($imagePath), $pictureName);
+        $inputs['picture'] = $imagePath . $pictureName;
 
 
 //        if ($user->count() < 1) {
@@ -65,7 +64,7 @@ class RestaurantController extends ImagesController
             'name' => $request->restaurantName,
             'title' => $request->title,
             'picture' => $inputs['picture'],
-            'menu'=>$inputs['menu'],
+            'menu' => $inputs['menu'],
             'location' => $request->location,
             'address' => $request->address,
             'description' => $request->description,
@@ -94,7 +93,7 @@ class RestaurantController extends ImagesController
      * Display the specified resource.
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function show($id)
     {
@@ -104,12 +103,12 @@ class RestaurantController extends ImagesController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param Restaurant $restaurant
      * @return \Illuminate\Http\Response
      */
     public function edit(Restaurant $restaurant)
     {
-        return view('panel.restaurants.edit',compact('restaurant'));
+        return view('panel.restaurants.edit', compact('restaurant'));
 
     }
 
@@ -117,12 +116,12 @@ class RestaurantController extends ImagesController
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param Restaurant $restaurant
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Restaurant $restaurant)
     {
-        $inputs = $request->except(['_token','_method','menu']);
+        $inputs = $request->except(['_token', '_method', 'menu']);
         $year = Carbon::now()->year;
         $month = Carbon::now()->month;
         $day = Carbon::now()->day;
@@ -130,13 +129,13 @@ class RestaurantController extends ImagesController
 
         $menu = $request->file('menu');
         $filename = $menu->getClientOriginalName();
-        $menu = $menu->move(public_path($imagePath) , $filename);
-        $inputs['menu'] = $imagePath.$filename;
+        $menu = $menu->move(public_path($imagePath), $filename);
+        $inputs['menu'] = $imagePath . $filename;
 
         $picture = $request->file('picture');
         $pictureName = $picture->getClientOriginalName();
-        $picture = $picture->move(public_path($imagePath) , $pictureName);
-        $inputs['picture'] = $imagePath.$pictureName;
+        $picture = $picture->move(public_path($imagePath), $pictureName);
+        $inputs['picture'] = $imagePath . $pictureName;
 
 
         $restaurant->whereId($restaurant->id)->update($inputs);
@@ -151,7 +150,9 @@ class RestaurantController extends ImagesController
      */
     public function destroy(Restaurant $restaurant)
     {
+        Comment::whereCommentable_id($restaurant->id)->delete();
         $restaurant->delete();
         return redirect()->back();
     }
 }
+
