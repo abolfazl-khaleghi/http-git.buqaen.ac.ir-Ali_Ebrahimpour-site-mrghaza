@@ -55,6 +55,8 @@
                             </ul>
                         </li>
                     @endcan
+
+                    @canany(['user-create','user-list'])
                     {{--users--}}
                     <li class="nav-item has-treeview @if (strpos(request()->getRequestURI(),'/panel/user') !== false ) menu-open @endif">
                         <a href="#"
@@ -89,7 +91,9 @@
 
                         </ul>
                     </li>
+                    @endcanany
 
+                    @canany(['admin-role','Admin-list'])
                     {{--admins--}}
                     <li class="nav-item has-treeview @if (strpos(request()->getRequestURI(),'/panel/admin') !== false ) menu-open @endif">
                         <a href="#"
@@ -124,7 +128,10 @@
 
                         </ul>
                     </li>
+                    @endcanany
 
+
+                    @canany(['servant-create','list-servant'])
                     {{--servant--}}
                     <li class="nav-item has-treeview  @if (strpos(request()->getRequestURI(),'/panel/servant') !== false ) menu-open @endif">
                         <a href="#"
@@ -169,8 +176,9 @@
 
                         </ul>
                     </li>
+                    @endcanany
 
-
+                    @canany(['create-restaurant','list-restaurant'])
                     {{--restaurant--}}
                     <li class="nav-item has-treeview @if (strpos(request()->getRequestURI(),'/panel/restaurant') !== false ) menu-open @endif">
                         <a href="#"
@@ -211,7 +219,7 @@
                             </li>
                         </ul>
                     </li>
-
+                    @endcanany
 
                     @can('static-pages')
 

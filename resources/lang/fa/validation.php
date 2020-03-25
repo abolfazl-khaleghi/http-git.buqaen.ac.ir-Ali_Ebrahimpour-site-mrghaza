@@ -136,6 +136,7 @@ return array(
         "available" => "موجود",
         "size" => "اندازه",
         "body" => "متن",
+        "label" => "توضیحات",
         "comment" => "کامنت"
     ),
 );

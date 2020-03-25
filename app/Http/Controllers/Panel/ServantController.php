@@ -42,6 +42,11 @@ class ServantController extends Controller
     {
         $user = User::where('mobile', '=', $request->mobile); //todo if both role
         if ($user->count() < 1) {
+
+            $this->validate($request, [
+                'mobile' => 'required |unique:users| max:11 | min:11'
+            ]);
+
             $servant = User::updateOrCreate([
                 'name' => $request->userName,
                 'role' => "servant",
@@ -71,7 +76,7 @@ class ServantController extends Controller
      * Display the specified resource.
      *
      * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function show($id)
     {
@@ -127,8 +132,9 @@ class ServantController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param Servant $servant
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Servant $servant)
     {

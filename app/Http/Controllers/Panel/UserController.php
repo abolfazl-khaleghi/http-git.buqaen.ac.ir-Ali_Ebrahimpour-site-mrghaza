@@ -11,19 +11,22 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     /**
-    accept comment in panel by admin
+     * accept comment in panel by admin
      **/
-    public function accept($id){
-        $comment = User::where('id',$id)->first();
+    public function accept($id)
+    {
+        $comment = User::where('id', $id)->first();
         $comment->update(['enabled' => 1]);
         return redirect()->back();
 
     }
+
     /**
-    reject comment in panel by admin
+     * reject comment in panel by admin
      **/
-    public function unAccept($id){
-        $comment = User::where('id',$id)->first();
+    public function unAccept($id)
+    {
+        $comment = User::where('id', $id)->first();
         $comment->update(['enabled' => 0]);
         return redirect()->back();
     }
@@ -35,7 +38,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('role','user')->get();
+        $users = User::where('role', 'user')->get();
         return view('panel.users.all', compact('users'));
     }
 
@@ -99,8 +102,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::with('member')->where('id',$id)->first();
-        return view('panel.users.edit',compact('user'));
+        $user = User::with('member')->where('id', $id)->first();
+        return view('panel.users.edit', compact('user'));
     }
 
     /**
@@ -110,8 +113,12 @@ class UserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,User $user )
+    public function update(Request $request, User $user)
     {
+        $this->validate($request, [
+            'phone' => 'required |unique| max:11 | min:11'
+        ]);
+
         $member = User::updateOrCreate([
             'name' => $request->userName,
             'role' => $request->role,
