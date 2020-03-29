@@ -124,9 +124,9 @@
                 </tbody>
             </table>
         </div>
-        {{--<div style="text-align: center">--}}
-        {{--{!! $episodes->render() !!}--}}
-        {{--</div>--}}
+        <div style="text-align: center">
+        {!! $comments->render() !!}
+        </div>
     </div>
 
 @endsection

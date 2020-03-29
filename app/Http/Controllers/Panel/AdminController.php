@@ -68,12 +68,13 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $user =  User::whereId($id)->first();
+        return view('panel.admins.edit',compact('user'));
     }
 
     /**
@@ -83,9 +84,10 @@ class AdminController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        User::find($request->input('user_id'))->roles()->sync($request->input('role_id'));
+        return redirect(route('admin.index'));
     }
 
     /**
@@ -96,6 +98,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user =  User::whereId($id)->first();
+        $user->roles()->detach();
+        return redirect(route('admin.index'));
+
     }
 }

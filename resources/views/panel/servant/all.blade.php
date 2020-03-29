@@ -85,7 +85,9 @@
             </table>
         </div>
 
-
+        <div style="text-align: center">
+            {!! $servants->render() !!}
+        </div>
     </div>
 
 

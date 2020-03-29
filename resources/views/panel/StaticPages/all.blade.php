@@ -52,7 +52,9 @@
             </table>
         </div>
 
-
+        <div style="text-align: center">
+            {!! $pages->render() !!}
+        </div>
     </div>
 
 

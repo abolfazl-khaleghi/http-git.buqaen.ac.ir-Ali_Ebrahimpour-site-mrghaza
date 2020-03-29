@@ -80,7 +80,9 @@
             </table>
         </div>
 
-
+        <div style="text-align: center">
+            {!! $users->render() !!}
+        </div>
     </div>
 
 

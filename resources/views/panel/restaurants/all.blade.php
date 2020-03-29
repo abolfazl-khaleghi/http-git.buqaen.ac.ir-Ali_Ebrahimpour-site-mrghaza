@@ -60,7 +60,9 @@
             </table>
         </div>
 
-
+        <div style="text-align: center">
+            {!! $restaurants->render() !!}
+        </div>
     </div>
 
 
