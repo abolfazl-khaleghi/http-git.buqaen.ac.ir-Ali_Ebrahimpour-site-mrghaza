@@ -12,7 +12,7 @@ class SettingController extends Controller
 {
     public function menu()
     {
-        $menus = Menu::paginate(5);
+        $menus = Menu::paginate(10);
 //        return $menus;
         return view('panel.menu.all', compact('menus'));
     }

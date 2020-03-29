@@ -17,7 +17,7 @@ class ServantController extends Controller
      */
     public function index()
     {
-        $servants = Servant::paginate(5);
+        $servants = Servant::paginate(10);
         return view('panel.servant.all', compact('servants'));
 
     }

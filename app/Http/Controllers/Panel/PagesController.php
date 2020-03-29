@@ -15,7 +15,7 @@ class PagesController extends Controller
      */
     public function index()
     {
-        $pages=Page::paginate(5);
+        $pages=Page::paginate(10);
         return view('panel.StaticPages.all', compact('pages'));
     }
 

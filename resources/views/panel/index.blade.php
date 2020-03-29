@@ -12,7 +12,7 @@
             <div class="info-box-content">
                 <span class="info-box-text">بهبود سایت</span>
                 <span class="info-box-number">
-                  30
+                  3p0
                   <small>%</small>
                 </span>
             </div>
