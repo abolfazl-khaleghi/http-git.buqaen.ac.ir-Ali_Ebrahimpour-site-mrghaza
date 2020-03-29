@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Member;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -38,7 +39,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('role', 'user')->get();
+        $users = DB::table('users')->where('role', 'user')
+            ->orderBy('created_at','desc')->paginate(10);
         return view('panel.users.all', compact('users'));
     }
 

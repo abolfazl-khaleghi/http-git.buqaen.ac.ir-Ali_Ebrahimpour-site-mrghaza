@@ -17,7 +17,7 @@ class ServantController extends Controller
      */
     public function index()
     {
-        $servants = Servant::paginate(10);
+        $servants = Servant::orderBy('created_at', 'desc')->paginate(10);
         return view('panel.servant.all', compact('servants'));
 
     }
