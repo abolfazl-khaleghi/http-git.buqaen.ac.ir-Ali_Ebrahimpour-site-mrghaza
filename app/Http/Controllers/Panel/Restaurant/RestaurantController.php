@@ -59,7 +59,6 @@ class RestaurantController extends ImagesController
         $inputs['picture'] = $imagePath . $pictureName;
 
 
-//        if ($user->count() < 1) {
         $restaurant = Restaurant::updateOrCreate([
             'name' => $request->restaurantName,
             'title' => $request->title,
@@ -78,14 +77,8 @@ class RestaurantController extends ImagesController
             'hour' => $request->hour,
         ]);
 
-//        $member = Member::updateOrCreate([
-//            'user_id' => $member->id,
-//            'birthday' => $request->birthday,
-//            'cardNumber' => $request->cardNumber,
-//        ]);
 
         return redirect(route('restaurant.index'));
-//        }
 //        return redirect()->back();  //todo fail it with sweet alert
     }
 

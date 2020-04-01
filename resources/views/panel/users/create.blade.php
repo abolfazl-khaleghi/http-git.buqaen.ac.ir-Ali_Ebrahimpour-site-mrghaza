@@ -110,10 +110,10 @@
 
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="cardNumber" class="control-label">نام پدر</label>
-                        <input type="number" class="form-control" name="cardNumber" id="cardNumber"
+                        <label for="fatherName" class="control-label">نام پدر</label>
+                        <input type="number" class="form-control" name="fatherName" id="fatherName"
                                placeholder="نام پدر را وارد کنید"
-                               value="{{ old('cardNumber') }}">
+                               value="{{ old('fatherName') }}">
                     </div>
                 </div>
 

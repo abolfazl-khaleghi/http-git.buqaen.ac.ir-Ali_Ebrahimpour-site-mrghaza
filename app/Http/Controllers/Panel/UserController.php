@@ -77,7 +77,7 @@ class UserController extends Controller
             $member = Member::updateOrCreate([
                 'user_id' => $member->id,
                 'birthday' => $request->birthday,
-                'cardNumber' => $request->cardNumber,
+                'fatherName' => $request->fatherName,
             ]);
 
             return $request->userName;
@@ -134,7 +134,7 @@ class UserController extends Controller
         $member = Member::updateOrCreate([
             'user_id' => $member->id,
             'birthday' => $request->birthday,
-            'cardNumber' => $request->cardNumber,
+            'fatherName' => $request->fatherName,
         ]);
         return redirect()->back();  //todo fail it with sweet alert
     }

@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('members')->insert([
             'user_id' => '1',
-            'cardNumber' => '155151',
+            'fatherName' => '155151',
         ]);
 
         DB::table('cities')->insert([
