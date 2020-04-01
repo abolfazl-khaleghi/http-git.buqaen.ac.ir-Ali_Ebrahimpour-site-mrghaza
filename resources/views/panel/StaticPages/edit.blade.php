@@ -39,23 +39,25 @@
         <div style="margin-bottom: 20px" class="page-header text-center head-section">
             <h2>ویرایش صفحه ثابت</h2>
         </div>
-        <form class="form-horizontal" action="{{route('static-page.store')}}" method="post"
+        <form class="form-horizontal" action="{{route('static-page.update',$page->id)}}" method="post"
               enctype="multipart/form-data">
             {{ csrf_field() }}
+            {{ method_field('PATCH') }}
+
             @include('layouts.errors')
             <div class="row">
                 <div class="col-sm-5">
                     <div class="form-group">
                         <label for="name" class="control-label">نام صفحه</label>
                         <input type="text" class="form-control" name="name" id="name"
-                               placeholder="نام صفحه را وارد کنید" value="{{ old('name') }}">
+                               placeholder="نام صفحه را وارد کنید" value="{{ $page->name }}">
                     </div>
                 </div>
                 <div class="col-sm-7">
                     <div class="form-group">
                         <label for="title" class="control-label">عنوان</label>
                         <input type="text" class="form-control" name="title" id="title"
-                               placeholder="عنوان رستوران را وارد کنید" value="{{ old('title') }}">
+                               placeholder="عنوان رستوران را وارد کنید" value="{{ $page->title }}">
                     </div>
                 </div>
 
@@ -65,7 +67,7 @@
                 <div class="col-sm-12">
                     <label for="description" class="control-label">توضیحات</label>
                     <textarea id="address" rows="2" class="form-control" name="description" id="description"
-                              placeholder="توضیحات را وارد کنید">{{ old('description') }}</textarea>
+                              placeholder="توضیحات را وارد کنید">{{ $page->description }}</textarea>
                 </div>
             </div>
 
@@ -74,13 +76,13 @@
                     <div class="form-group">
                         <label for="tags" class="control-label">تگ ها</label>
                         <input type="text" class="form-control" name="tags" id="tags"
-                               placeholder="تگ ها با , وارد کنید" value="{{ old('tags') }}">
+                               placeholder="تگ ها با , وارد کنید" value="{{ $page->tags }}">
                     </div>
                 </div>
                 <div class="col-sm-8">
                     <label for="link" class="control-label"> لینک صفحه </label>
                     <input style="text-align: left;" type="text" class="form-control" name="link" id="link"
-                           placeholder="لینک صفحه را وارد کنید" value="{{ old('link') }}">
+                           placeholder="لینک صفحه را وارد کنید" value="{{ $page->link }}">
                 </div>
             </div>
 

@@ -38,39 +38,43 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     {{--<li class="dropdown-item">--}}
-                                        {{--<button type="button" class="btn btn-info btn-sm" data-toggle="modal"--}}
-                                                {{--data-target="#myModal">مشاهده اطلاعات کامل--}}
-                                        {{--</button>--}}
+                                    {{--<button type="button" class="btn btn-info btn-sm" data-toggle="modal"--}}
+                                    {{--data-target="#myModal">مشاهده اطلاعات کامل--}}
+                                    {{--</button>--}}
                                     {{--</li>--}}
-                                    <li class="dropdown-item">
-                                        @if($user->enabled == 0)
-                                            {{ Form::open([ 'method'  => 'post', 'route' => [ 'user.accept', $user->id ] ]) }}
-                                            {{ csrf_field() }}
-                                            <div class="btn-group btn-group-xs">
-                                                <button type="submit" class="btn btn-success">فعال سازی</button>
-                                            </div>
-                                            {{ Form::close() }}
-                                        @elseif($user->enabled == 1)
-                                            {{ Form::open([ 'method'  => 'post', 'route' => [ 'user.unAccept', $user->id ] ]) }}
-                                            {{ csrf_field() }}
-                                            <button type="submit" class="btn btn-danger">غیر فعال سازی</button>
-                                            {{ Form::close() }}
-                                        @endif
-                                    </li>
-
-
-
+                                    @can('user-accept')
+                                        <li class="dropdown-item">
+                                            @if($user->enabled == 0)
+                                                {{ Form::open([ 'method'  => 'post', 'route' => [ 'user.accept', $user->id ] ]) }}
+                                                {{ csrf_field() }}
+                                                <div class="btn-group btn-group-xs">
+                                                    <button type="submit" class="btn btn-success">فعال سازی</button>
+                                                </div>
+                                                {{ Form::close() }}
+                                            @elseif($user->enabled == 1)
+                                                {{ Form::open([ 'method'  => 'post', 'route' => [ 'user.unAccept', $user->id ] ]) }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-danger">غیر فعال سازی</button>
+                                                {{ Form::close() }}
+                                            @endif
+                                        </li>
+                                    @endcan
                                     <li class="dropdown-item">
                                         {{ Form::open([ 'method'  => 'delete', 'route' => [ 'user.destroy', $user->id ] ]) }}
                                         {{ method_field('delete') }}
                                         {{ csrf_field() }}
                                         <div class="btn-group btn-group-xs">
-                                            <a href="{{ route('user.edit', $user->id) }}"
-                                               class="btn btn-primary">ویرایش</a>
-                                            <button type="submit" class="btn btn-danger">حذف</button>
+                                            @can('user-edit')
+                                                <a href="{{ route('user.edit', $user->id) }}"
+                                                   class="btn btn-primary">ویرایش</a>
+                                            @endcan
+                                            @can('user-delete')
+                                                <button type="submit" class="btn btn-danger">حذف</button>
+                                            @endcan
                                         </div>
                                         {{ Form::close() }}
                                     </li>
+
                                 </ul>
                             </div>
                         </td>

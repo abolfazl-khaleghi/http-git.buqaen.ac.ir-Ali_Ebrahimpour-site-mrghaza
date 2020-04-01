@@ -45,7 +45,9 @@ class PagesController extends Controller
             'description' => $request->description,
             'tags' => $request->tags,
         ]);
-        return redirect()->back();
+//        return redirect()->back();
+        return redirect(route('static-page.index'));
+
     }
 
     /**
@@ -67,7 +69,8 @@ class PagesController extends Controller
      */
     public function edit($id)
     {
-        return view('panel.StaticPages.edit');
+        $page = Page::whereId($id)->first();
+        return view('panel.StaticPages.edit',compact('page'));
     }
 
     /**
@@ -77,19 +80,23 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Page $page)
     {
-        //
+        $page->update($request->all());
+        return redirect(route('static-page.index'));
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Page $page
+     * @return Page
      */
     public function destroy($id)
     {
-        //
+        $page = Page::whereId($id)->first();
+        $page->delete();
+        return redirect(route('static-page.index'));
     }
 }

@@ -45,14 +45,14 @@
             {{ csrf_field() }}
             @include('layouts.errors')
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label for="userName" class="control-label">نام و نام خانودگی</label>
                         <input type="text" class="form-control" name="userName" id="userName"
                                placeholder="نام کاربر را وارد کنید" value="{{ $user->name }}">
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class="form-group">
                         <label for="email" class="control-label">ایمیل کاربر</label>
                         <input type="email" class="form-control" name="email" id="email"
@@ -69,27 +69,7 @@
                         </select>
                     </div>
                 </div>
-
-            </div>
-
-
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label for="password" class="control-label">پسورد</label>
-                        <input type="password" class="form-control" name="password" id="password"
-                               placeholder="پسورد کاربر را وارد کنید" value="{{ $user->password }}">
-                    </div>
-                </div>
                 <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="role" class="control-label">نقش کاربر</label>
-                        <select name="role" class="form-control select2" style="width: 100%;">
-                            <option value="user" selected="selected">کاربر عادی</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-5">
                     <div class="form-group">
                         <label for="codeMeli" class="control-label">کد ملی</label>
                         <input type="text" class="form-control" name="codeMeli" id="codeMeli"
@@ -98,7 +78,6 @@
                 </div>
 
             </div>
-
 
             <div class="form-group">
                 <div class="col-sm-12">
@@ -116,7 +95,7 @@
                         <label for="birthday" class="control-label">تاریخ تولد</label>
                         <input type="text" class="form-control birthday" name="birthday"
                                placeholder="تاریخ تولد را وارد کنید"
-                               value="{{ old('birthday') }}">
+                               value="{{ $user->member->birthday }}">
                     </div>
                 </div>
 
@@ -130,14 +109,27 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="cardNumber" class="control-label">شماره کارت</label>
+                        <label for="cardNumber" class="control-label">نام پدر</label>
                         <input type="number" class="form-control" name="cardNumber" id="cardNumber"
-                               placeholder="شماره کارت را وارد کنید"
+                               placeholder="نام پدر را وارد کنید"
                                value="{{ $user->member->cardNumber }}">
                     </div>
                 </div>
+
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="city_id" class="control-label">شهر</label>
+                        <select name="city_id" class="form-control select2" style="width: 100%;">
+                            @php $cities = \App\Models\City::all() @endphp
+                            @foreach($cities as $city )
+                                <option value="{{$city->id}}">{{$city->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="enabled" class="control-label">وضعیت</label>

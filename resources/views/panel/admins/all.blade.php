@@ -31,8 +31,12 @@
                                         {{ method_field('delete') }}
                                         {{ csrf_field() }}
                                         <div class="btn-group btn-group-xs">
-                                            <a href="{{ route('admin.edit' , $user->id) }}"  class="btn btn-primary">ویرایش</a>
-                                            <button type="submit" class="btn btn-danger">حذف</button>
+                                            @can('admin-edit')
+                                                <a href="{{ route('admin.edit' , $user->id) }}" class="btn btn-primary">ویرایش</a>
+                                            @endcan
+                                            @can('admin-delete')
+                                                <button type="submit" class="btn btn-danger">حذف</button>
+                                            @endcan
                                         </div>
                                     </form>
                                 </td>

@@ -30,23 +30,27 @@
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     {{--<li class="dropdown-item">--}}
-                                        {{--<button type="button" class="btn btn-info btn-sm" data-toggle="modal"--}}
-                                                {{--data-target="#myModal">مشاهده اطلاعات کامل--}}
-                                        {{--</button>--}}
+                                    {{--<button type="button" class="btn btn-info btn-sm" data-toggle="modal"--}}
+                                    {{--data-target="#myModal">مشاهده اطلاعات کامل--}}
+                                    {{--</button>--}}
                                     {{--</li>--}}
                                     {{--<li class="dropdown-item">--}}
-                                        {{--<button type="button" class="btn btn-warning btn-sm" data-toggle="modal"--}}
-                                                {{--data-target="#myModal">غیر فعال سازی/فعال سازی--}}
-                                        {{--</button>--}}
+                                    {{--<button type="button" class="btn btn-warning btn-sm" data-toggle="modal"--}}
+                                    {{--data-target="#myModal">غیر فعال سازی/فعال سازی--}}
+                                    {{--</button>--}}
                                     {{--</li>--}}
                                     <li class="dropdown-item">
                                         {{ Form::open([ 'method'  => 'delete', 'route' => [ 'restaurant.destroy', $restaurant->id ] ]) }}
                                         {{ method_field('delete') }}
                                         {{ csrf_field() }}
                                         <div class="btn-group btn-group-xs">
-                                            <a href="{{ route('restaurant.edit', $restaurant->id) }}"
-                                               class="btn btn-primary">ویرایش</a>
-                                            <button type="submit" class="btn btn-danger">حذف</button>
+                                            @can('restaurant-edit')
+                                                <a href="{{ route('restaurant.edit', $restaurant->id) }}"
+                                                   class="btn btn-primary">ویرایش</a>
+                                            @endcan
+                                            @can('restaurant-delete')
+                                                <button type="submit" class="btn btn-danger">حذف</button>
+                                            @endcan
                                         </div>
                                         {{ Form::close() }}
                                     </li>

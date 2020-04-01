@@ -4,6 +4,7 @@ namespace App;
 
 use App\Models\Member;
 use App\Models\Role;
+use App\Models\Servant;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -42,6 +43,11 @@ class User extends Authenticatable
     public function member()
     {
         return $this->hasOne(Member::class);
+    }
+
+    public function servant()
+    {
+        return $this->hasOne(Servant::class);
     }
 
 }

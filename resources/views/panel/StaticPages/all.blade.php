@@ -30,17 +30,23 @@
                                                 data-target="#myModal">مشاهده اطلاعات کامل
                                         </button>
                                     </li>
-                                    {{--<li>--}}
-                                        {{--{{ \Form::open([ 'method'  => 'delete', 'route' => [ 'user.destroy', $restaurant->id ] ]) }}--}}
-                                        {{--{{ method_field('delete') }}--}}
-                                        {{--{{ csrf_field() }}--}}
-                                        {{--<div class="btn-group btn-group-xs">--}}
-                                            {{--<a href="{{ route('user.edit' , ['id' => $restaurant->id]) }}"--}}
-                                               {{--class="btn btn-primary">ویرایش</a>--}}
-                                            {{--<button type="submit" class="btn btn-danger">حذف</button>--}}
-                                        {{--</div>--}}
-                                        {{--{{ Form::close() }}--}}
-                                    {{--</li>--}}
+
+                                    <li class="dropdown-item">
+                                        {{ Form::open([ 'method'  => 'delete', 'route' => [ 'static-page.destroy', $page->id ] ]) }}
+                                        {{ method_field('delete') }}
+                                        {{ csrf_field() }}
+                                        <div class="btn-group btn-group-xs">
+                                            {{--@can('static-page-edit')--}}
+                                                <a href="{{ route('static-page.edit', $page->id) }}"
+                                                   class="btn btn-primary">ویرایش</a>
+                                            {{--@endcan--}}
+{{--                                            @can('static-page-delete')--}}
+                                                <button type="submit" class="btn btn-danger">حذف</button>
+                                            {{--@endcan--}}
+
+                                        </div>
+                                        {{ Form::close() }}
+                                    </li>
                                 </ul>
                             </div>
                         </td>

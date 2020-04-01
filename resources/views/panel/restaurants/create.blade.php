@@ -141,7 +141,7 @@
                         <select name="servant_id" class="form-control select2" style="width: 100%;">
                             @php $servants = \App\User::whereRole('servant')->get() @endphp
                             @foreach($servants as $servant)
-                                <option value="{{$servant->id}}" selected="selected">{{$servant->name}}</option>
+                                <option value="{{$servant->id}}">{{$servant->name.' \ '.$servant->mobile}}</option>
                             @endforeach
                         </select>
                     </div>

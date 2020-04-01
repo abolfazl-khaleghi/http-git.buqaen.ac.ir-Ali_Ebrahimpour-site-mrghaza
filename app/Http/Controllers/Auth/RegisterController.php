@@ -50,7 +50,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'mobile' => ['required', 'string', 'max:12'],
+            'mobile' => ['required','unique:users', 'string', 'max:12'],
         ]);
     }
 
@@ -62,7 +62,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::updateOrCreate([
+        return User::create([
             'mobile' => $data['mobile'],
         ]);
     }

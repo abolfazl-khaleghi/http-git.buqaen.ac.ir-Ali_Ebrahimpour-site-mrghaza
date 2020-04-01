@@ -49,4 +49,12 @@ class SettingController extends Controller
         return redirect()->back();
     }
 
+
+
+    public function slider()
+    {
+//        $menus = Menu::paginate(10);
+        return view('panel.slider.all');
+    }
+
 }

@@ -103,15 +103,18 @@
                                     @endif
 
 
-
                                     <li class="dropdown-item">
                                         {{ Form::open([ 'method'  => 'delete', 'route' => [ 'comment.destroy', $comment->id ] ]) }}
                                         {{ method_field('delete') }}
                                         {{ csrf_field() }}
                                         <div class="btn-group btn-group-xs">
-                                            <a href="{{ route('comment.edit', $comment->id) }}"
-                                               class="btn btn-primary">ویرایش</a>
-                                            <button type="submit" class="btn btn-danger">حذف</button>
+                                            @can('comment-edit')
+                                                <a href="{{ route('comment.edit', $comment->id) }}"
+                                                   class="btn btn-primary">ویرایش</a>
+                                            @endcan
+                                            @can('comment-delete')
+                                                <button type="submit" class="btn btn-danger">حذف</button>
+                                            @endcan
                                         </div>
                                         {{ Form::close() }}
                                     </li>
@@ -125,7 +128,7 @@
             </table>
         </div>
         <div style="text-align: center">
-        {!! $comments->render() !!}
+            {!! $comments->render() !!}
         </div>
     </div>
 

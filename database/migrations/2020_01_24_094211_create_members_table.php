@@ -18,7 +18,11 @@ class CreateMembersTable extends Migration
             $table->unsignedBigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('birthday')->nullable();
-            $table->integer('cardNumber')->nullable();
+            $table->string('fatherName')->nullable();
+
+            $table->unsignedBigInteger('city_id')->unsigned();
+            $table->foreign('city_id')->references('id')->on('cities')->onUpdate('cascade')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
