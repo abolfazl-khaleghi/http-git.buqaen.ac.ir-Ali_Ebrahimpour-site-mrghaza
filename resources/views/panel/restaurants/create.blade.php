@@ -73,9 +73,9 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="location" class="control-label">مکان</label>
+                        <label for="location" class="control-label">محله</label>
                         <input type="text" class="form-control" name="location" id="location"
-                               placeholder="مکان رستوران را وارد کنید" value="{{ old('location') }}">
+                               placeholder="محله رستوران را وارد کنید" value="{{ old('location') }}">
                     </div>
                 </div>
 
