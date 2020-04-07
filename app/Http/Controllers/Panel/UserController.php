@@ -64,7 +64,7 @@ class UserController extends Controller
     {
         $user = User::where('mobile', '=', $request->mobile);
         if ($user->count() < 1) {
-            $member = User::updateOrCreate([
+            $member = User::create([
                 'name' => $request->userName,
                 'role' => 'user',
                 'enabled' => 0,
@@ -72,12 +72,13 @@ class UserController extends Controller
                 'mobile' => $request->mobile,
                 'sex' => $request->sex,
                 'address' => $request->address,
-                'password' => Hash::make('123456'),
+//                'password' => Hash::make('123456'),
             ]);
-            $member = Member::updateOrCreate([
+            Member::create([
                 'user_id' => $member->id,
                 'birthday' => $request->birthday,
                 'fatherName' => $request->fatherName,
+                'city_id' => $request->city_id,
             ]);
 
             return $request->userName;
@@ -129,12 +130,14 @@ class UserController extends Controller
             'mobile' => $request->mobile,
             'sex' => $request->sex,
             'address' => $request->address,
-            'password' => Hash::make($request->password),
+//            'password' => Hash::make($request->password),
         ]);
-        $member = Member::updateOrCreate([
+        Member::updateOrCreate([
             'user_id' => $member->id,
             'birthday' => $request->birthday,
             'fatherName' => $request->fatherName,
+            'city_id' => $request->city_id,
+
         ]);
         return redirect()->back();  //todo fail it with sweet alert
     }
