@@ -201,7 +201,7 @@ function initilizeTodayRestaurantSlider(list) {
     list.forEach(slide => {
         ul.innerHTML += `
             <li class="splide__slide">
-                <div class="slide">
+                <div style="height: 395px;" class="slide">
                     <div class="card text-center">
                         <img src="${slide.img}" class="card-img-top mx-auto" alt="...">
                         <div class="card-body text-center">
@@ -266,7 +266,7 @@ function initilizeAllRestaurantSlider(list) {
     list.forEach(slide => {
         ul.innerHTML += `
             <li class="splide__slide">
-                <div class="slide">
+                <div style="height: 315px;" class="slide">
                     <div class="card text-center">
                         <img src="${slide.img}" class="card-img-top mx-auto" alt="...">
                         <div class="card-body text-center">
