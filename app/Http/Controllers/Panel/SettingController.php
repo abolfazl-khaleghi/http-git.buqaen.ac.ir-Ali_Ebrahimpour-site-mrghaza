@@ -43,9 +43,12 @@ class SettingController extends Controller
 
     public function addFooter(Request $request)
     {
-        Footer::update([
+        $footer = Footer::first();
+
+        $footer->update([
             'description' => $request->description,
         ]);
+
         return redirect()->back();
     }
 

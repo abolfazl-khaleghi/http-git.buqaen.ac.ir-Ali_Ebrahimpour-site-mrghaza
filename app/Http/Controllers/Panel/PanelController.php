@@ -14,8 +14,7 @@ class PanelController extends Controller
      */
     public function index()
     {
-//        SweetAlert::message('سلام به سایت ما خوش اومدین !');
-        alert()->success('You have been logged out.', 'Good bye!');
+//        alert('Hello World!')->persistent("Close this");
         return view('panel.index');
 
     }

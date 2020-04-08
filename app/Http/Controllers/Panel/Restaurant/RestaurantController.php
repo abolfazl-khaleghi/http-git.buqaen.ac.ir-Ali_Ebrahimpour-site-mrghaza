@@ -59,7 +59,7 @@ class RestaurantController extends ImagesController
         $inputs['picture'] = $imagePath . $pictureName;
 
 
-        $restaurant = Restaurant::updateOrCreate([
+        $restaurant = Restaurant::create([
             'name' => $request->restaurantName,
             'title' => $request->title,
             'picture' => $inputs['picture'],

@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use UxWeb\SweetAlert\SweetAlert;
 
 class UserController extends Controller
 {
@@ -81,9 +82,11 @@ class UserController extends Controller
                 'city_id' => $request->city_id,
             ]);
 
-            return $request->userName;
+            alert()->success('اطلاعات با موفقیت ثبت شد', ' ثبت اطلاعات')->autoclose(3500)->persistent('بستن');
+            return redirect(route('user.index'));
         }
-        return redirect()->back();  //todo fail it with sweet alert
+        alert()->error('اطلاعات را دوباره بررسی کنید', 'خطا در ثبت')->autoclose(3500)->persistent('بستن');
+        return redirect()->back();
     }
 
     /**

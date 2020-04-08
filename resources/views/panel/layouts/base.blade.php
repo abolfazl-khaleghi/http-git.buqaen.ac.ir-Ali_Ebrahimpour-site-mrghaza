@@ -31,6 +31,9 @@
     <link rel="stylesheet" href="<?= Url('plugins/bootstrap/css/bootstrap-select.min.css') ?>">
     <!-- template rtl version -->
     <link rel="stylesheet" href="<?= Url('dist/css/custom-style.css') ?>">
+    <link rel="stylesheet" href="<?= Url('css/sweetalert.css') ?>">
+
+
     @yield('css')
 
 </head>
@@ -163,6 +166,9 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?= Url('dist/js/demo.js') ?>"></script>
 <script src="<?= Url('js/bootstrap-select.min.js') ?>"></script>
+<script src="<?= Url('js/sweetalert2.all.js') ?>"></script>
+@include('sweet::alert')
+
 @yield('script')
 
 </body>

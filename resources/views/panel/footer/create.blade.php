@@ -40,7 +40,7 @@
         </div>
         <form class="form-horizontal" action="{{route('footer.store')}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
-            {{method_field('PUT')}}
+{{--            {{method_field('PUT')}}--}}
             @include('layouts.errors')
             <div class="row">
                 <div class="col-sm-6">
