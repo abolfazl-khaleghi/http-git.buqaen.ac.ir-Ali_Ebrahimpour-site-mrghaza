@@ -13,7 +13,7 @@
     <!-- ckeditor -->
     <script src="<?= Url('plugins/ckeditor/ckeditor.js') ?>"></script>
     <script>
-      CKEDITOR.replace('address', {
+      CKEDITOR.replace('description', {
         filebrowserUploadUrl: '/admin/panel/upload-image',
         filebrowserImageUploadUrl: '/admin/panel/upload-image'
       });
@@ -66,7 +66,7 @@
             <div class="form-group">
                 <div class="col-sm-12">
                     <label for="description" class="control-label">توضیحات</label>
-                    <textarea id="address" rows="2" class="form-control" name="description" id="description"
+                    <textarea rows="2" class="form-control" name="description" id="description"
                               placeholder="توضیحات را وارد کنید">{{ $page->description }}</textarea>
                 </div>
             </div>

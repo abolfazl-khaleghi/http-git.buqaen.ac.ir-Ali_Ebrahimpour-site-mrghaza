@@ -39,7 +39,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $restaurants = Restaurant::all();
+        $restaurants = Restaurant::where('enabled','=','1')->get();
         return view('home', compact('restaurants'));
     }
 

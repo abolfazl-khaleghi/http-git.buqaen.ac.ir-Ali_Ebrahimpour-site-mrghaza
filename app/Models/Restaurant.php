@@ -12,7 +12,7 @@ class Restaurant extends Model
     protected $fillable = [
         'name', 'title','day','hour',
         'slug','picture',
-        'description',
+        'description','enabled',
         'menu', 'designerComment', 'location',
         'address', 'phone', 'report', 'viewCount',
         'commentCount', 'slider_id', 'guild_id', 'city_id','servant_id'

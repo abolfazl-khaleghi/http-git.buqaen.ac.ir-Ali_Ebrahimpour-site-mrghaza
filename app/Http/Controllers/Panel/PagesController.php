@@ -38,7 +38,7 @@ class PagesController extends Controller
      */
     public function store(Request $request)
     {
-        $page = Page::updateOrCreate([
+        $page = Page::create([
             'name' => $request->name,
             'title' => $request->title,
             'link' => $request->link,
@@ -80,8 +80,9 @@ class PagesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Page $page)
+    public function update(Request $request, $id)
     {
+        $page = Page::whereId($id)->first();
         $page->update($request->all());
         return redirect(route('static-page.index'));
 

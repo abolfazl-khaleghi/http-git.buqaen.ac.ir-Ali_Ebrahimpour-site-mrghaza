@@ -43,8 +43,10 @@ Route::group(['namespace' => 'Panel','middleware' => 'auth:web', 'prefix' => 'pa
     Route::resource('servant', 'ServantController');
     Route::resource('banner', 'BannerController');
     Route::group(['namespace' => 'Restaurant'], function () {
-        Route::resource('/restaurant', 'RestaurantController');
+        Route::post('restaurant/accept/{restaurant_id}', 'RestaurantController@accept')->name('restaurant.accept');
+        Route::post('restaurant/unAccept/{restaurant_id}', 'RestaurantController@unAccept')->name('restaurant.unAccept');
         Route::resource('/restaurant/offer', 'OfferController');
+        Route::resource('/restaurant', 'RestaurantController');
     });
 
     Route::resource('static-page', 'PagesController');

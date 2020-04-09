@@ -63,6 +63,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'mobile' => 'max:11|min:11|unique:users',
+//            'phone' => 'unique:users|min:11|max:11',
+//            'shaba' => 'unique:servants| max:25',
+            'codeMelli' => 'unique:servants|min:10|max:10',
+        ]);
+
         $user = User::where('mobile', '=', $request->mobile);
         if ($user->count() < 1) {
             $member = User::create([
@@ -122,9 +129,11 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $this->validate($request, [
-            'phone' => 'required |unique| max:11 | min:11'
+            'mobile' => 'max:11|min:11',
+//            'phone' => 'min:11|max:11',
+//            'shaba' => 'max:25',
+            'codeMelli' => 'min:10|max:10',
         ]);
-
         $member = User::updateOrCreate([
             'name' => $request->userName,
             'role' => $request->role,

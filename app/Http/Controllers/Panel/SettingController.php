@@ -25,14 +25,11 @@ class SettingController extends Controller
         return redirect()->back();
     }
 
-
     public function removeToMenu(Menu $menu)
     {
         $menu->delete();
         return redirect()->back();
     }
-
-
 
 
     public function footer()
@@ -44,15 +41,11 @@ class SettingController extends Controller
     public function addFooter(Request $request)
     {
         $footer = Footer::first();
-
         $footer->update([
             'description' => $request->description,
         ]);
-
         return redirect()->back();
     }
-
-
 
     public function slider()
     {

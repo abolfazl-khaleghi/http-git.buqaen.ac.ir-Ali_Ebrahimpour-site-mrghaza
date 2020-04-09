@@ -12,6 +12,7 @@
                     <th>نام رستوران</th>
                     <th>محله</th>
                     <th>آدرس</th>
+                    <th>وضعیت</th>
                     <th>شماره تماس</th>
                     <th>اطلاعات بیشتر</th>
                 </tr>
@@ -22,6 +23,14 @@
                         <td>{{ $restaurant->name }}</td>
                         <td>{{ $restaurant->location }}</td>
                         <td>{!!  $restaurant->address !!}</td>
+                        <td>
+                            @if($restaurant->enabled)
+                                <span class="badge badge-success">فعال</span>
+                            @else
+                                <span class="badge badge-danger">غیر فعال</span>
+                            @endif
+
+                        </td>
                         <td>{{ $restaurant->phone }}</td>
                         <td>
                             <div class="input-group-prepend">
@@ -29,16 +38,23 @@
                                     امکانات
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    {{--<li class="dropdown-item">--}}
-                                    {{--<button type="button" class="btn btn-info btn-sm" data-toggle="modal"--}}
-                                    {{--data-target="#myModal">مشاهده اطلاعات کامل--}}
-                                    {{--</button>--}}
-                                    {{--</li>--}}
-                                    {{--<li class="dropdown-item">--}}
-                                    {{--<button type="button" class="btn btn-warning btn-sm" data-toggle="modal"--}}
-                                    {{--data-target="#myModal">غیر فعال سازی/فعال سازی--}}
-                                    {{--</button>--}}
-                                    {{--</li>--}}
+                                    @can('restaurant-accept')
+                                        <li class="dropdown-item">
+                                            @if($restaurant->enabled == 0)
+                                                {{ Form::open([ 'method'  => 'post', 'route' => [ 'restaurant.accept', $restaurant->id ] ]) }}
+                                                {{ csrf_field() }}
+                                                <div class="btn-group btn-group-xs">
+                                                    <button type="submit" class="btn btn-success">فعال سازی</button>
+                                                </div>
+                                                {{ Form::close() }}
+                                            @elseif($restaurant->enabled == 1)
+                                                {{ Form::open([ 'method'  => 'post', 'route' => [ 'restaurant.unAccept', $restaurant->id ] ]) }}
+                                                {{ csrf_field() }}
+                                                <button type="submit" class="btn btn-danger">غیر فعال سازی</button>
+                                                {{ Form::close() }}
+                                            @endif
+                                        </li>
+                                    @endcan
                                     <li class="dropdown-item">
                                         {{ Form::open([ 'method'  => 'delete', 'route' => [ 'restaurant.destroy', $restaurant->id ] ]) }}
                                         {{ method_field('delete') }}

@@ -25,11 +25,11 @@
                                     امکانات
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li class="dropdown-item">
-                                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
-                                                data-target="#myModal">مشاهده اطلاعات کامل
-                                        </button>
-                                    </li>
+                                    {{--<li class="dropdown-item">--}}
+                                        {{--<button type="button" class="btn btn-info btn-sm" data-toggle="modal"--}}
+                                                {{--data-target="#myModal">مشاهده اطلاعات کامل--}}
+                                        {{--</button>--}}
+                                    {{--</li>--}}
 
                                     <li class="dropdown-item">
                                         {{ Form::open([ 'method'  => 'delete', 'route' => [ 'static-page.destroy', $page->id ] ]) }}

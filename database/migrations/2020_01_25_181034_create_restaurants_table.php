@@ -31,6 +31,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('slug')->nullable();
             $table->string('day')->nullable();
             $table->string('hour')->nullable();
+            $table->boolean('enabled')->nullable();
 
             $table->unsignedBigInteger('slider_id')->unsigned()->nullable();
             $table->foreign('slider_id')->references('id')->on('sliders')->onUpdate('cascade')->onDelete('cascade');

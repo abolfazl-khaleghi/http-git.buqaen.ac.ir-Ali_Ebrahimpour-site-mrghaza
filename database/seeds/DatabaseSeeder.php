@@ -12,6 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('cities')->insert([
+            'name' => Str::random(10),
+        ]);
+        DB::table('guilds')->insert([
+            'name' => Str::random(10),
+        ]);
+
         DB::table('users')->insert([
             'name' => Str::random(10),
             'role' => 'user',
@@ -19,16 +26,13 @@ class DatabaseSeeder extends Seeder
             'email' => Str::random(10)
         ]);
         DB::table('members')->insert([
-            'user_id' => '1',
-            'fatherName' => '155151',
+            'user_id' => 1,
+            'fatherName' => 'femofmeo',
+            'city_id' => 1,
+
         ]);
 
-        DB::table('cities')->insert([
-            'name' => Str::random(10),
-        ]);
-        DB::table('guilds')->insert([
-            'name' => Str::random(10),
-        ]);
+
         DB::table('servants')->insert([
             'shaba' => Str::random(10),
             'user_id' => 1,

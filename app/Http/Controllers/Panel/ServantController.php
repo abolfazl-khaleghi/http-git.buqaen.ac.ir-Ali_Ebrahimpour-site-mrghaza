@@ -46,9 +46,9 @@ class ServantController extends Controller
 
             $this->validate($request, [
                 'mobile' => 'max:11|min:11|unique:users',
-                'phone' => 'unique:users|min:11|max:11',
-                'shaba' => 'unique:servants| max:25',
-                'codeMelli' => 'unique:servants|min:11|max:11',
+                'phone' => 'min:11|max:11',
+                'shaba' => 'unique:servants| max:24',
+                'codeMelli' => 'unique:servants|min:10|max:10',
             ]);
 
             $servant = User::updateOrCreate([
@@ -115,7 +115,7 @@ class ServantController extends Controller
         $this->validate($request, [
             'mobile' => 'max:11 | min:11',
             'phone' => 'min:11 | max:11',
-            'shaba' => 'max:25',
+            'shaba' => 'max:24',
             'codeMelli' => 'min:10 | max:10',
         ]);
 

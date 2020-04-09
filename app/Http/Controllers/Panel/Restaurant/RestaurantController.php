@@ -13,6 +13,27 @@ use Illuminate\Support\Str;
 class RestaurantController extends ImagesController
 {
     /**
+     * accept comment in panel by admin
+     **/
+    public function accept($id)
+    {
+        $comment = Restaurant::where('id', $id)->first();
+        $comment->update(['enabled' => 1]);
+        return redirect()->back();
+
+    }
+
+    /**
+     * reject comment in panel by admin
+     **/
+    public function unAccept($id)
+    {
+        $comment = Restaurant::where('id', $id)->first();
+        $comment->update(['enabled' => 0]);
+        return redirect()->back();
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -43,6 +64,8 @@ class RestaurantController extends ImagesController
      */
     public function store(Request $request)
     {
+
+        //todo use image controoler parent
         $year = Carbon::now()->year;
         $month = Carbon::now()->month;
         $day = Carbon::now()->day;
