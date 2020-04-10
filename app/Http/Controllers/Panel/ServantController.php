@@ -46,8 +46,8 @@ class ServantController extends Controller
 
             $this->validate($request, [
                 'mobile' => 'max:11|min:11|unique:users',
-                'phone' => 'min:11|max:11',
-                'shaba' => 'unique:servants| max:24',
+                'phone' => 'min:11|max:11|nullable',
+                'shaba' => 'unique:servants| min:24 | max:24|nullable',
                 'codeMelli' => 'unique:servants|min:10|max:10',
             ]);
 
@@ -114,8 +114,8 @@ class ServantController extends Controller
 //        return $request;
         $this->validate($request, [
             'mobile' => 'max:11 | min:11',
-            'phone' => 'min:11 | max:11',
-            'shaba' => 'max:24',
+            'phone' => 'min:11 | max:11 |nullable',
+            'shaba' => ' min:24 | max:24|nullable',
             'codeMelli' => 'min:10 | max:10',
         ]);
 

@@ -65,7 +65,7 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'mobile' => 'max:11|min:11|unique:users',
-//            'phone' => 'unique:users|min:11|max:11',
+//            'phone' => 'unique:users|min:11|max:11|nullable',
 //            'shaba' => 'unique:servants| max:25',
             'codeMelli' => 'unique:servants|min:10|max:10',
         ]);

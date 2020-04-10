@@ -139,7 +139,11 @@
                         <select name="city" class="form-control select2" style="width: 100%;">
                             @php $cities = \App\Models\City::all() @endphp
                             @foreach($cities as $city )
-                                <option value="{{$city->id}}" selected="selected">{{$city->name}}</option>
+                                <option
+                                        @if ($servant->city_id == $city->id)
+                                        selected="selected"
+                                        @endif
+                                        value="{{$city->id}}">{{$city->name}}</option>
                             @endforeach
                         </select>
                     </div>

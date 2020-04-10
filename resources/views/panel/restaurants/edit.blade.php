@@ -133,7 +133,11 @@
                         <select name="guild_id" class="form-control select2" style="width: 100%;">
                             @php $guilds = \App\Models\Guild::all() @endphp
                             @foreach($guilds as $guild)
-                                <option value="{{$guild->id}}" selected="selected">{{$guild->name}}</option>
+                                <option
+                                        @if ($restaurant->guild_id == $guild->id)
+                                        selected="selected"
+                                        @endif
+                                        value="{{$guild->id}}" >{{$guild->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -145,7 +149,11 @@
                         <select name="servant_id" class="form-control select2" style="width: 100%;">
                             @php $servants = \App\User::whereRole('servant')->get() @endphp
                             @foreach($servants as $servant)
-                                <option value="{{$servant->id}}" selected="selected">{{$servant->name}}</option>
+                                <option
+                                        @if ($restaurant->servant_id == $servant->id)
+                                        selected="selected"
+                                        @endif
+                                        value="{{$servant->id}}">{{$servant->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -160,7 +168,11 @@
                         <select name="city_id" class="form-control select2" style="width: 100%;">
                             @php $cities = \App\Models\City::all() @endphp
                             @foreach($cities as $city )
-                                <option value="{{$city->id}}" selected="selected">{{$city->name}}</option>
+                                <option
+                                        @if ($restaurant->city_id == $city->id)
+                                        selected="selected"
+                                        @endif
+                                        value="{{$city->id}}" >{{$city->name}}</option>
                             @endforeach
                         </select>
                     </div>

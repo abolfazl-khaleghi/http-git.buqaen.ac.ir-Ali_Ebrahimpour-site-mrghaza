@@ -124,6 +124,7 @@ class RestaurantController extends ImagesController
      */
     public function edit(Restaurant $restaurant)
     {
+        $restaurant =  $restaurant->with('servant')->whereId($restaurant->id)->first();
         return view('panel.restaurants.edit', compact('restaurant'));
 
     }
