@@ -132,7 +132,7 @@
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="city" class="control-label">شهر</label>
-                        <select name="city" class="form-control select2" style="width: 100%;">
+                        <select name="city_id" class="form-control select2" style="width: 100%;">
                             @php $cities = \App\Models\City::all() @endphp
                             @foreach($cities as $city )
                                 <option value="{{$city->id}}" selected="selected">{{$city->name}}</option>

@@ -67,7 +67,7 @@ class ServantController extends Controller
                 'shaba' => $request->shaba,
                 'codeMelli' => $request->codeMelli,
                 'cardNumber' => $request->cardNumber,
-                'city_id' => $request->city,
+                'city_id' => $request->city_id,
 
             ]);
             alert()->success('اطلاعات با موفقیت ثبت شد', ' ثبت اطلاعات')->autoclose(3500)->persistent('بستن');
