@@ -43,6 +43,7 @@
         <form class="form-horizontal" action="{{route('user.update', $user->id)}}" method="post"
               enctype="multipart/form-data">
             {{ csrf_field() }}
+            {{ method_field('PATCH') }}
             @include('layouts.errors')
             <div class="row">
                 <div class="col-sm-4">

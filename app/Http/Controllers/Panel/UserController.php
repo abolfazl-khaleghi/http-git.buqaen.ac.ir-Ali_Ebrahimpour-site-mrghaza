@@ -128,15 +128,16 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+
         $this->validate($request, [
             'mobile' => 'max:11|min:11',
 //            'phone' => 'min:11|max:11',
 //            'shaba' => 'max:25',
             'codeMelli' => 'min:10|max:10',
         ]);
-        $member = User::updateOrCreate([
+        $userUpdate = $user->update([
             'name' => $request->userName,
-            'role' => $request->role,
+            'role' => 'user',
             'enabled' => $request->enabled,
             'email' => $request->email,
             'mobile' => $request->mobile,
@@ -144,14 +145,16 @@ class UserController extends Controller
             'address' => $request->address,
 //            'password' => Hash::make($request->password),
         ]);
-        Member::updateOrCreate([
+
+        $member = Member::where('user_id','=',$user->id)->first();
+        $member->update([
             'user_id' => $member->id,
             'birthday' => $request->birthday,
             'fatherName' => $request->fatherName,
             'city_id' => $request->city_id,
-
         ]);
-        return redirect()->back();  //todo fail it with sweet alert
+        alert()->success('اطلاعات با موفقیت ثبت شد', ' ثبت اطلاعات')->autoclose(3500)->persistent('بستن');
+        return redirect(route('user.index'));
     }
 
     /**
