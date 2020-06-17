@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-sm-4 mt-1">
                     <a target="_blank" href="https://play.google.com/store/apps/details?id=com.kipopay.mrghaza">
-                        <button class="btn btn-outline-light btn-block">گوگل پلی</button>
+                        <text class="btn btn-outline-light btn-block">گوگل پلی</text>
                     </a>
 
                 </div>
