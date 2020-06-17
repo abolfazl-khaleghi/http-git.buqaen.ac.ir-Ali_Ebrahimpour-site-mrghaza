@@ -39,7 +39,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $restaurants = Restaurant::where('enabled','=','1')->get();
+        $restaurants = Restaurant::where('enabled', '=', '1')->get();
         return view('home', compact('restaurants'));
     }
 
@@ -75,6 +75,19 @@ class HomeController extends Controller
 //        ));
 //        print_r($rsult["SingleSMSEngineResult"]);
     }
+
+
+    public function registerRestaurant()
+    {
+//        $restaurants = Restaurant::where('enabled','=','1')->get();
+        return view('registerRestaurant');
+    }
+
+    public function registerForm()
+    {
+        return view('registerForm');
+    }
+
 }
 
 

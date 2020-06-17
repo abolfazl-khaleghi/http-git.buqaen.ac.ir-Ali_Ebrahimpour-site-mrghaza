@@ -69,7 +69,6 @@
 
             </div>
 
-
             <div class="form-group">
                 <div class="col-sm-12">
                     <label for="address" class="control-label">آدرس</label>
@@ -77,7 +76,6 @@
                               placeholder="آدرس را وارد کنید">{{ old('address') }}</textarea>
                 </div>
             </div>
-
 
             <div class="row">
 
@@ -109,6 +107,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
 
                 <div class="col-sm-6">

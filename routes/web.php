@@ -66,4 +66,6 @@ Route::group(['namespace' => 'Panel','middleware' => 'auth:web', 'prefix' => 'pa
 });
 Auth::routes();
 
+Route::get('register-form','HomeController@registerForm');
+Route::get('registerRestaurant','HomeController@registerRestaurant');
 Route::get('{page}','HomeController@staticPages');

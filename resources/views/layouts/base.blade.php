@@ -24,7 +24,7 @@
 <!-- header -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white dir-rtl text-right">
     <a class="navbar-brand" href="#">
-        <img src="<?= Url('images/logo-black-white.png') ?>" width="64" height="64" alt="logo">
+        <img src="<?= Url('images/logo.png') ?>" width="64" height="64" alt="logo">
         <span></span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -37,6 +37,10 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/">خانه <span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/register-form">فرم پیش ثبت نام<span class="sr-only">(current)</span></a>
+            </li>
+
             @php $menus = \App\Models\Menu::all() @endphp
             @php $pages = \App\Models\Page::all() @endphp
             @foreach($menus as $menu)
@@ -67,7 +71,7 @@
         </ul>
         <a type="button" class="btn nav-download-app mx-auto shadow-md"
            target="_blank" href="http://cafebazaar.ir/app/?id=com.kipopay.mrghaza&ref=share">
-            دانلود اپلیکیشن
+             دانلود مستقیم اندروید
         </a>
         <form class="form-inline mr-2 my-lg-0 dir-ltr search" onsubmit="return false;">
             <button class="btn my-sm-0" type="button">
@@ -155,7 +159,9 @@
             <a target="_blank" href="https://play.google.com/store/apps/details?id=com.kipopay.mrghaza">
                 <img style="max-width: 128px;" src="<?= Url('images/footer/get-it-on-google-play.png') ?>">
             </a>
-            <img style="max-width: 128px;" src="<?= Url('images/footer/get-it-on-sib-app.png') ?>">
+            <a target="_blank" href="https://sibche.com/applications/%D8%A2%D9%82%D8%A7%DB%8C-%D8%BA%D8%B0%D8%A7">
+            <img style="max-width: 128px;" src="<?= Url('images/footer/Sibche.png') ?>">
+            </a>
 
 
         </div>

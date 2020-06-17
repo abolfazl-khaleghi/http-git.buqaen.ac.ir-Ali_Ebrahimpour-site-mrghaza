@@ -20,12 +20,15 @@
             </div>
             <div class="row p-2">
                 <div class="col-sm-4 mt-1">
-                    <a target="_blank" href="https://webapp.mrghazaa.ir">
-                        <text class="btn btn-outline-light btn-block">دانلود از سیب اپ</text>
+                    <a target="_blank" href="https://sibche.com/applications/%D8%A2%D9%82%D8%A7%DB%8C-%D8%BA%D8%B0%D8%A7">
+                        <text class="btn btn-outline-light btn-block">دانلود از سیبچه</text>
                     </a>
                 </div>
                 <div class="col-sm-4 mt-1">
-                    <button class="btn btn-outline-light btn-block">گوگل پلی</button>
+                    <a target="_blank" href="https://play.google.com/store/apps/details?id=com.kipopay.mrghaza">
+                        <button class="btn btn-outline-light btn-block">گوگل پلی</button>
+                    </a>
+
                 </div>
                 <div class="col-sm-4 mt-1">
                     <a target="_blank" href="http://cafebazaar.ir/app/?id=com.kipopay.mrghaza&ref=share">

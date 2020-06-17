@@ -51,7 +51,7 @@ class ServantController extends Controller
                 'codeMelli' => 'unique:servants|min:10|max:10',
             ]);
 
-            $servant = User::updateOrCreate([
+            $servant = User::create([
                 'name' => $request->userName,
                 'role' => "servant",
                 'enabled' => 0,
@@ -62,7 +62,7 @@ class ServantController extends Controller
                 'address' => $request->address,
                 'password' => Hash::make('123456'),
             ]);
-            $servant = Servant::updateOrCreate([
+            $servant = Servant::create([
                 'user_id' => $servant->id,
                 'shaba' => $request->shaba,
                 'codeMelli' => $request->codeMelli,
@@ -120,8 +120,25 @@ class ServantController extends Controller
         ]);
 
         $user = \App\User::where('id', $servant->user_id)->first();
-        $user->update($request->all());
-        $servant->update($request->all());
+        $user->update([
+            'name' => $request->userName,
+            'role' => "servant",
+            'enabled' => 0,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'phone' => $request->phone,
+            'sex' => $request->sex,
+            'address' => $request->address,
+            'password' => Hash::make('123456'),
+        ]);
+        $servant->update([
+            'user_id' => $servant->id,
+            'shaba' => $request->shaba,
+            'codeMelli' => $request->codeMelli,
+            'cardNumber' => $request->cardNumber,
+            'city_id' => $request->city_id,
+
+        ]);
 
         return redirect(route('servant.index'));
     }

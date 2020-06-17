@@ -14,8 +14,6 @@ class PanelController extends Controller
      */
     public function index()
     {
-//        alert('Hello World!')->persistent("Close this");
         return view('panel.index');
-
     }
 }
