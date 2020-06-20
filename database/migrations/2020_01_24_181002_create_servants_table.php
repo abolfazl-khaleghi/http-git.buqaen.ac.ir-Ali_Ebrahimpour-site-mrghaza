@@ -23,7 +23,10 @@ class CreateServantsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
 
             $table->unsignedBigInteger('city_id')->unsigned();
-            $table->foreign('city_id')->references('id')->on('cities')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('city_id')->references('id')->on('city')->onUpdate('cascade')->onDelete('cascade');
+
+            $table->unsignedBigInteger('province_id')->unsigned();
+            $table->foreign('province_id')->references('id')->on('province')->onUpdate('cascade')->onDelete('cascade');
 
 
             $table->timestamps();

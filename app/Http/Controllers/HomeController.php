@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Offer;
 use App\Models\Page;
 use App\Models\Restaurant;
+use App\Models\Servant;
 use App\User;
 use function GuzzleHttp\Psr7\str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use nusoap_client;
 use PhpParser\Node\Scalar\String_;
 use function PHPSTORM_META\type;
@@ -88,6 +91,47 @@ class HomeController extends Controller
         return view('registerForm');
     }
 
+    public function setRegisterForm(Request $request)
+    {
+        $user = User::create([
+            'name' => $request->userName,
+            'role' => "servant",
+            'enabled' => 0,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'phone' => $request->phone,
+            'sex' => $request->sex,
+            'address' => $request->address,
+            'password' => Hash::make('123456'),
+        ]);
+        $servant = Servant::create([
+            'user_id' => $user->id,
+            'shaba' => $request->shaba,
+            'codeMelli' => $request->codeMelli,
+            'cardNumber' => $request->cardNumber,
+            'city_id' => $request->city_id,
+            'province_id' => $request->province_id,
+        ]);
+        $restaurant = Restaurant::create([
+            'name' => $request->restaurantName,
+            'typeOwner' => $request->typeOwner,
+            'meter' => $request->meter,
+            'hesabdari' => $request->hesabdari,
+            'shopServant' => implode(',',$request->shopServant),
+            'shopService' => implode(',',$request->shopService),
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'guild_id' => $request->guild_id,
+            'city_id' => $request->city_id,
+            'province_id' => $request->province_id,
+            'servant_id' => $user->id,
+            'slug' => $request->restaurantName,
+        ]);
+        $offer = Offer::create([
+            'percent' => $request->percent,
+        ]);
+        return redirect()->back();
+    }
 }
 
 

@@ -21,7 +21,7 @@ class CreateMembersTable extends Migration
             $table->string('fatherName')->nullable();
 
             $table->unsignedBigInteger('city_id')->unsigned();
-            $table->foreign('city_id')->references('id')->on('cities')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('city_id')->references('id')->on('city')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();
         });

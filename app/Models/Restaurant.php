@@ -14,7 +14,8 @@ class Restaurant extends Model
         'slug','picture',
         'description','enabled',
         'menu', 'designerComment', 'location',
-        'address', 'phone', 'report', 'viewCount',
+        'address', 'phone', 'report', 'viewCount','province_id',
+        'typeOwner', 'meter', 'hesabdari', 'shopServant','shopService',
         'commentCount', 'slider_id', 'guild_id', 'city_id','servant_id'
     ];
     /**

@@ -123,7 +123,7 @@ class ServantController extends Controller
         $user->update([
             'name' => $request->userName,
             'role' => "servant",
-            'enabled' => 0,
+            'enabled' => 0, //todo
             'email' => $request->email,
             'mobile' => $request->mobile,
             'phone' => $request->phone,
