@@ -11,13 +11,13 @@
 
 @section('script')
     <!-- ckeditor -->
-    {{--<script src="<?= Url('plugins/ckeditor/ckeditor.js') ?>"></script>--}}
-    {{--<script>--}}
-    {{--CKEDITOR.replace('address', {--}}
-    {{--filebrowserUploadUrl: '/admin/panel/upload-image',--}}
-    {{--filebrowserImageUploadUrl: '/admin/panel/upload-image'--}}
-    {{--});--}}
-    {{--</script>--}}
+    <script src="<?= Url('plugins/ckeditor/ckeditor.js') ?>"></script>
+    <script>
+      CKEDITOR.replace('address', {
+        filebrowserUploadUrl: '/admin/panel/upload-image',
+        filebrowserImageUploadUrl: '/admin/panel/upload-image'
+      });
+    </script>
 
 
 
@@ -94,9 +94,15 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label for="birthday" class="control-label">تاریخ تولد</label>
-                        <input type="text" class="form-control birthday" name="birthday"
-                               placeholder="تاریخ تولد را وارد کنید"
-                               value="{{ $user->member->birthday }}">
+                        @if($user->member != null)
+                            <input type="text" class="form-control birthday" name="birthday"
+                                   placeholder="تاریخ تولد را وارد کنید"
+                                   value="{{ $user->member->birthday }}">
+                        @else
+                            <input type="text" class="form-control birthday" name="birthday"
+                                   placeholder="تاریخ تولد را وارد کنید"
+                                   value="{{ old('birthday') }}">
+                        @endif
                     </div>
                 </div>
 
@@ -113,25 +119,42 @@
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="fatherName" class="control-label">نام پدر</label>
-                        <input type="number" class="form-control" name="fatherName" id="fatherName"
-                               placeholder="نام پدر را وارد کنید"
-                               value="{{ $user->member->fatherName }}">
+                        @if($user->member != null)
+                            <input type="number" class="form-control" name="fatherName" id="fatherName"
+                                   placeholder="نام پدر را وارد کنید"
+                                   value="{{ $user->member->fatherName }}">
+                        @else
+                            <input type="number" class="form-control" name="fatherName" id="fatherName"
+                                   placeholder="نام پدر را وارد کنید"
+                                   value="{{ old('fatherName') }}">
+                        @endif
                     </div>
                 </div>
 
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="city_id" class="control-label">شهر</label>
-                        <select name="city_id" class="form-control select2" style="width: 100%;">
-                            @php $cities = \App\Models\City::all() @endphp
-                            @foreach($cities as $city )
-                                <option
-                                        @if ($user->member->city_id == $city->id)
-                                        selected="selected"
-                                        @endif
-                                        value="{{$city->id}}">{{$city->name}}</option>
-                            @endforeach
-                        </select>
+                        @if($user->member != null)
+
+                            <select name="city_id" class="form-control select2" style="width: 100%;">
+                                @php $cities = \App\Models\City::all() @endphp
+                                @foreach($cities as $city )
+                                    <option
+                                            @if ($user->member->city_id == $city->id)
+                                            selected="selected"
+                                            @endif
+                                            value="{{$city->id}}">{{$city->name}}</option>
+                                @endforeach
+                            </select>
+                        @else
+                            <select name="city_id" class="form-control select2" style="width: 100%;">
+                                @php $cities = \App\Models\City::all() @endphp
+                                @foreach($cities as $city )
+                                    <option value="{{$city->id}}">{{$city->name}}</option>
+                                @endforeach
+                            </select>
+
+                        @endif
                     </div>
                 </div>
 
