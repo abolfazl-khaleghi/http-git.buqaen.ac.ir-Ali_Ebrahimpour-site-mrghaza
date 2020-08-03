@@ -8,7 +8,6 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use UxWeb\SweetAlert\SweetAlert;
 
 class UserController extends Controller
 {
@@ -20,7 +19,6 @@ class UserController extends Controller
         $comment = User::where('id', $id)->first();
         $comment->update(['enabled' => 1]);
         return redirect()->back();
-
     }
 
     /**
@@ -41,7 +39,7 @@ class UserController extends Controller
     public function index()
     {
         $users = DB::table('users')->where('role', 'user')
-            ->orderBy('created_at','desc')->paginate(10);
+            ->orderBy('created_at', 'desc')->paginate(10);
         return view('panel.users.all', compact('users'));
     }
 
@@ -60,6 +58,7 @@ class UserController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -134,6 +133,10 @@ class UserController extends Controller
 //            'phone' => 'min:11|max:11',
 //            'shaba' => 'max:25',
             'codeMelli' => 'min:10|max:10',
+            'permission_id' => 'required',
+            'name' => 'required',
+            'label' => 'required'
+
         ]);
         $userUpdate = $user->update([
             'name' => $request->userName,
@@ -146,7 +149,7 @@ class UserController extends Controller
 //            'password' => Hash::make($request->password),
         ]);
 
-        $member = Member::where('user_id','=',$user->id)->first();
+        $member = Member::where('user_id', '=', $user->id)->first();
         $member->update([
             'user_id' => $member->id,
             'birthday' => $request->birthday,

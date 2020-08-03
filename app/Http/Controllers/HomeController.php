@@ -93,6 +93,29 @@ class HomeController extends Controller
 
     public function setRegisterForm(Request $request)
     {
+        $this->validate($request, [
+            //user
+            'userName' => 'required',
+            'mobile' => 'max:11|min:11|unique:users',
+            'phone' => 'max:11|min:11|unique:users',
+            'sex' => 'required',
+            'address' => 'required',
+
+            //servant
+            'shaba' => 'max:25',
+            'codeMelli' => 'unique:servants|min:10|max:10',
+            'city_id' => 'required',
+            'province_id' => 'required',
+
+            // restaurant
+            'restaurantName' => 'required',
+            'typeOwner' => 'required',
+            'hesabdari' => 'required',
+            'shopServant' => 'required',
+            'shopService' => 'required',
+
+        ]);
+
         $user = User::create([
             'name' => $request->userName,
             'role' => "servant",
@@ -117,8 +140,8 @@ class HomeController extends Controller
             'typeOwner' => $request->typeOwner,
             'meter' => $request->meter,
             'hesabdari' => $request->hesabdari,
-            'shopServant' => implode(',',$request->shopServant),
-            'shopService' => implode(',',$request->shopService),
+            'shopServant' => implode(',', $request->shopServant),
+            'shopService' => implode(',', $request->shopService),
             'address' => $request->address,
             'phone' => $request->phone,
             'guild_id' => $request->guild_id,
@@ -130,6 +153,7 @@ class HomeController extends Controller
         $offer = Offer::create([
             'percent' => $request->percent,
         ]);
+        alert()->success('اطلاعات با موفقیت ثبت شد', ' ثبت اطلاعات')->autoclose(3500)->persistent('بستن');
         return redirect()->back();
     }
 }

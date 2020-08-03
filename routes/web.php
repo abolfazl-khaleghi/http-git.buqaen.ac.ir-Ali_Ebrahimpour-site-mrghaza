@@ -21,11 +21,10 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::post('/', 'HomeController@sendSms')->name('sendSms');
 
 //Route::get('/articles/{articleSlug}' , 'ArticleController@single');  //todo add in after time
-Route::get('/restaurant/{restaurantSlug}' , 'RestaurantController@index');
+Route::get('/restaurant/{restaurantSlug}', 'RestaurantController@index');
 
 
-
-Route::group(['namespace' => 'Panel','middleware' => 'auth:web', 'prefix' => 'panel'], function () {
+Route::group(['namespace' => 'Panel', 'middleware' => 'auth:web', 'prefix' => 'panel'], function () {
     Route::get('/', 'PanelController@index')->name('panel');
 
     //comment
@@ -66,7 +65,7 @@ Route::group(['namespace' => 'Panel','middleware' => 'auth:web', 'prefix' => 'pa
 });
 Auth::routes();
 
-Route::get('register-form','HomeController@registerForm')->name('formRestaurant.index');
-Route::post('register-form','HomeController@setRegisterForm')->name('formRestaurant.store');
-Route::get('registerRestaurant','HomeController@registerRestaurant');
-Route::get('{page}','HomeController@staticPages');
+Route::get('register-form', 'HomeController@registerForm')->name('formRestaurant.index');
+Route::post('register-form', 'HomeController@setRegisterForm')->name('formRestaurant.store');
+Route::get('registerRestaurant', 'HomeController@registerRestaurant');
+Route::get('{page}', 'HomeController@staticPages');

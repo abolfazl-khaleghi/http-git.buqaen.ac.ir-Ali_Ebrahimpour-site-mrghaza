@@ -21,6 +21,8 @@
 </head>
 
 <body>
+@include('sweetalert::alert')
+
 <!-- header -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white dir-rtl text-right">
     <a class="navbar-brand" href="#">

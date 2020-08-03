@@ -167,8 +167,7 @@
 <script src="<?= Url('dist/js/demo.js') ?>"></script>
 <script src="<?= Url('js/bootstrap-select.min.js') ?>"></script>
 <script src="<?= Url('js/sweetalert2.all.js') ?>"></script>
-@include('sweet::alert')
-
+@include('sweetalert::alert')
 @yield('script')
 
 </body>

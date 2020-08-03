@@ -1,6 +1,12 @@
 @extends('layouts.base')
 
 @section('css')
+    <style>
+        .required:after {
+            content:" *";
+            color: red;
+        }
+    </style>
     <!-- Bootstrap time Picker -->
     <link rel="stylesheet" href="<?= Url('plugins/timepicker/bootstrap-timepicker.min.css') ?>">
     <!-- Persian Data Picker -->
@@ -39,6 +45,7 @@
 @endsection
 
 @section('body')
+
     <form class="form-horizontal" action="{{route('formRestaurant.store')}}" method="post"
           enctype="multipart/form-data">
         @csrf
@@ -49,12 +56,13 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
+                    @include('layouts.errors')
 
                     <div class="row">
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label>استان</label>
+                                <label class="required" >استان</label>
                                 <select id="province_id" name="province_id" class="form-control select2"
                                         style="width: 100%;">
                                     @php $provinces = \Illuminate\Support\Facades\DB::table('province')->get() @endphp
@@ -67,7 +75,7 @@
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="city" class="control-label">شهر</label>
+                                <label for="city" class="required control-label">شهر</label>
                                 <select name="city_id" class="form-control select2" style="width: 100%;">
                                     @php $cities = \Illuminate\Support\Facades\DB::table('city')->get() @endphp
                                     @foreach($cities as $city )
@@ -79,7 +87,7 @@
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label for="guild_id" class="control-label">نوع صنف</label>
+                                <label for="guild_id" class="required control-label">نوع صنف</label>
                                 <select name="guild_id" class="form-control select2" style="width: 100%;">
                                     @php $guilds = \App\Models\Guild::all() @endphp
                                     @foreach($guilds as $guild)
@@ -96,7 +104,7 @@
                             {{--value="{{ old('dateRigster') }}">--}}
                             {{--</div>--}}
                             <div class="form-group">
-                                <label for="restaurantName">نام فروشگاه:</label>
+                                <label class="required" for="restaurantName">نام فروشگاه:</label>
                                 <input type="text" class="form-control" name="restaurantName"
                                        placeholder="نام فروشگاه را وارد کنید"
                                        value="{{ old('restaurantName') }}">
@@ -110,14 +118,14 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="userName" class="control-label">نام و نام خانودگی پذیرنده:</label>
+                                <label class="required" for="userName" class="control-label">نام و نام خانودگی پذیرنده:</label>
                                 <input type="text" class="form-control" name="userName" id="userName"
                                        placeholder="نام پذیرنده را وارد کنید" value="{{ old('userName') }}">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="codeMelli" class="control-label">کد ملی</label>
+                                <label for="codeMelli" class="required control-label">کد ملی</label>
                                 <input type="number" class="form-control" name="codeMelli" id="codeMelli"
                                        placeholder="کد ملی را وارد کنید"
                                        value="{{ old('codeMelli') }}">
@@ -126,7 +134,7 @@
 
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label for="mobile" class="control-label">شماره موبایل</label>
+                                <label for="mobile" class="control-label required">شماره موبایل</label>
                                 <input type="number" class="form-control" name="mobile" id="mobile"
                                        placeholder="شماره موبایل را وارد کنید"
                                        value="{{ old('mobile') }}">
@@ -137,7 +145,7 @@
 
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="phone" class="control-label">شماره تلفن ثابت</label>
+                                <label for="phone" class="control-label required">شماره تلفن ثابت</label>
                                 <input type="number" class="form-control" name="phone" id="phone"
                                        placeholder="شماره تلفن ثابت را وارد کنید"
                                        value="{{ old('phone') }}">
@@ -164,7 +172,7 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <label for="sex" class="control-label">جنسیت</label>
+                                <label for="sex" class="control-label required">جنسیت</label>
                                 <select name="sex" class="form-control select2" style="width: 100%;">
                                     <option value="1" selected="selected">مرد</option>
                                     <option value="0">زن</option>
@@ -176,7 +184,7 @@
 
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <label for="address" class="control-label">آدرس</label>
+                            <label for="address" class="control-label required">آدرس</label>
                             <textarea id="address" rows="2" class="form-control" name="address" id="address"
                                       placeholder="آدرس را وارد کنید">{{ old('address') }}</textarea>
                         </div>
@@ -200,7 +208,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>نوع مالکیت ملکی</label>
-                                <select name="typeOwner" class="form-control select2" style="width: 100%;">
+                                <select name="typeOwner" class="required form-control select2" style="width: 100%;">
                                     <option value="1" selected="selected"> مالکیت فردی</option>
                                     <option value="2">استیجاری</option>
                                     <option value="3">شراکتی</option>
@@ -229,7 +237,7 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="hesabdari" class="control-label">نوع سیستم حسابداری</label>
+                                <label for="hesabdari" class="required control-label">نوع سیستم حسابداری</label>
                                 <input class="form-control" name="hesabdari" id="hesabdari"
                                        placeholder="نوع سیستم حسابداری را وارد کنید"
                                        value="{{ old('hesabdari') }}">
@@ -237,7 +245,7 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label>امکانات فروشگاهی</label>
+                                <label class="required">امکانات پدیرنده</label>
                                 <select name="shopServant[]" multiple="multiple" class="form-control select2"
                                         style="width: 100%;">
                                     <option value="1">اینترنت</option>
@@ -252,7 +260,7 @@
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label>امکانات فروشگاه</label>
+                                <label class="required">امکانات فروشگاه</label>
                                 <select name="shopService[]" multiple="multiple" class="form-control select2"
                                         style="width: 100%;">
                                     <option value="1"> WIFI اینترنت</option>

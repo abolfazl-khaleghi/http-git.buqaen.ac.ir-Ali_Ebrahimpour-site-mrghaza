@@ -20,7 +20,6 @@ class RestaurantController extends ImagesController
         $comment = Restaurant::where('id', $id)->first();
         $comment->update(['enabled' => 1]);
         return redirect()->back();
-
     }
 
     /**
@@ -42,7 +41,6 @@ class RestaurantController extends ImagesController
     {
         $restaurants = Restaurant::with('servant')->paginate(10);
         return view('panel.restaurants.all', compact('restaurants'));
-
     }
 
     /**
@@ -52,7 +50,6 @@ class RestaurantController extends ImagesController
      */
     public function create()
     {
-
         return view('panel.restaurants.create');
     }
 
