@@ -13,7 +13,7 @@
             <div class="info-box-content">
                 <span class="info-box-text">بهبود سایت</span>
                 <span class="info-box-number">
-                  3p0
+                  30
                   <small>%</small>
                 </span>
             </div>

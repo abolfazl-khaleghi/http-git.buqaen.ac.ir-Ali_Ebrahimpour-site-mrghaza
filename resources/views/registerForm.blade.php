@@ -38,7 +38,13 @@
       $(function () {
         //Initialize Select2 Elements
         $('.select2').select2()
-      })
+      });
+      // $('select').select2({
+      //   placeholder: {
+      //     id: '-1', // the value of the option
+      //     text: 'Select an option'
+      //   }
+      // });
     </script>
 
 
@@ -63,7 +69,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="required" >استان</label>
-                                <select id="province_id" name="province_id" class="form-control select2"
+                                <select  id="province_id" name="province_id" class="form-control select2"
                                         style="width: 100%;">
                                     @php $provinces = \Illuminate\Support\Facades\DB::table('province')->get() @endphp
                                     @foreach($provinces as $province )
@@ -104,7 +110,7 @@
                             {{--value="{{ old('dateRigster') }}">--}}
                             {{--</div>--}}
                             <div class="form-group">
-                                <label class="required" for="restaurantName">نام فروشگاه:</label>
+                                <label class="required" for="restaurantName">نام فروشگاه</label>
                                 <input type="text" class="form-control" name="restaurantName"
                                        placeholder="نام فروشگاه را وارد کنید"
                                        value="{{ old('restaurantName') }}">
@@ -118,7 +124,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label class="required" for="userName" class="control-label">نام و نام خانودگی پذیرنده:</label>
+                                <label class="required" for="userName" class="control-label">نام و نام خانودگی پذیرنده</label>
                                 <input type="text" class="form-control" name="userName" id="userName"
                                        placeholder="نام پذیرنده را وارد کنید" value="{{ old('userName') }}">
                             </div>
@@ -245,8 +251,8 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label class="required">امکانات پدیرنده</label>
-                                <select name="shopServant[]" multiple="multiple" class="form-control select2"
+                                <label class="required">امکانات پذیرنده</label>
+                                <select  name="shopServant[]" multiple="multiple" class="select form-control select2"
                                         style="width: 100%;">
                                     <option value="1">اینترنت</option>
                                     <option value="2">کامیپوتر</option>

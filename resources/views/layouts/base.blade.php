@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>مستر غذا</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="<?= Url('js/sweetalert2.all.js') ?>"></script>
 
 
     <style>

@@ -153,7 +153,7 @@ class HomeController extends Controller
         $offer = Offer::create([
             'percent' => $request->percent,
         ]);
-        alert()->success('اطلاعات با موفقیت ثبت شد', ' ثبت اطلاعات')->autoclose(3500)->persistent('بستن');
+        alert()->success('اطلاعات با موفقیت ثبت شد', ' ثبت اطلاعات')->autoclose(3500);
         return redirect()->back();
     }
 }
