@@ -3,7 +3,7 @@
 @section('css')
     <style>
         .required:after {
-            content:" *";
+            content: " *";
             color: red;
         }
     </style>
@@ -48,6 +48,24 @@
     </script>
 
 
+    {{--<script>--}}
+    {{--$(function() {--}}
+    {{--$('select[name=province_id]').change(function() {--}}
+    {{--alert();--}}
+    {{--$('#city_id').append("<option value='"+data.cities[i].id+"'>"+data.cities[i].city_name+"</option>")--}}
+    {{--// $.get(url, function(data) {--}}
+    {{--//   var select = $('form select[name= state]');--}}
+    {{--//--}}
+    {{--//   select.empty();--}}
+    {{--//--}}
+    {{--//   $.each(data,function(key, value) {--}}
+    {{--//     select.append('<option value=' + value.id + '>' + value.name + '</option>');--}}
+    {{--//   });--}}
+    {{--// });--}}
+    {{--});--}}
+    {{--});--}}
+    {{--</script>--}}
+
 @endsection
 
 @section('body')
@@ -66,9 +84,10 @@
 
                     <div class="row">
 
+                        {{--state--}}
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label class="required" >استان</label>
+                                <label class="required">استان</label>
                                 <select  id="province_id" name="province_id" class="form-control select2"
                                         style="width: 100%;">
                                     @php $provinces = \Illuminate\Support\Facades\DB::table('province')->get() @endphp
@@ -79,10 +98,11 @@
                             </div>
                         </div>
 
+                        {{--city--}}
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="city" class="required control-label">شهر</label>
-                                <select name="city_id" class="form-control select2" style="width: 100%;">
+                                <select id="city_id" name="city_id" class="form-control select2" style="width: 100%;">
                                     @php $cities = \Illuminate\Support\Facades\DB::table('city')->get() @endphp
                                     @foreach($cities as $city )
                                         <option value="{{$city->id}}">{{$city->name}}</option>
@@ -91,6 +111,7 @@
                             </div>
                         </div>
 
+                        {{--type--}}
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="guild_id" class="required control-label">نوع صنف</label>
@@ -102,6 +123,8 @@
                                 </select>
                             </div>
                         </div>
+
+                        {{--name shop--}}
                         <div class="col-md-3">
                             {{--<div class="form-group">--}}
                             {{--<label>تاریخ ثبت نام:</label>--}}
@@ -122,13 +145,17 @@
                     </div>
 
                     <div class="row">
+                        {{--name owner--}}
                         <div class="col-sm-4">
                             <div class="form-group">
-                                <label class="required" for="userName" class="control-label">نام و نام خانودگی پذیرنده</label>
+                                <label class="required" for="userName" class="control-label">نام و نام خانودگی
+                                    پذیرنده</label>
                                 <input type="text" class="form-control" name="userName" id="userName"
                                        placeholder="نام پذیرنده را وارد کنید" value="{{ old('userName') }}">
                             </div>
                         </div>
+
+                        {{--code meli--}}
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="codeMelli" class="required control-label">کد ملی</label>
@@ -138,6 +165,7 @@
                             </div>
                         </div>
 
+                        {{--mobile--}}
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="mobile" class="control-label required">شماره موبایل</label>
@@ -148,7 +176,7 @@
                         </div>
                     </div>
                     <div class="row">
-
+                        {{--phone--}}
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="phone" class="control-label required">شماره تلفن ثابت</label>
@@ -158,7 +186,7 @@
                             </div>
                         </div>
 
-
+                        {{--email--}}
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="email" class="control-label">ایمیل پذیرنده</label>
@@ -168,6 +196,7 @@
                             </div>
                         </div>
 
+                        {{--card number--}}
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label for="cardNumber" class="control-label">شماره کارت</label>
@@ -176,6 +205,8 @@
                                        value="{{ old('cardNumber') }}">
                             </div>
                         </div>
+
+                        {{--sex--}}
                         <div class="col-sm-2">
                             <div class="form-group">
                                 <label for="sex" class="control-label required">جنسیت</label>
@@ -188,6 +219,7 @@
                     </div>
 
 
+                    {{--address--}}
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="address" class="control-label required">آدرس</label>
@@ -196,13 +228,11 @@
                         </div>
                     </div>
 
-                    <div class="row">
 
-
-                    </div>
 
                     <div class="row">
 
+                        {{--shaba--}}
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="shaba" class="control-label">شماره شبا</label>
@@ -211,6 +241,8 @@
                                        value="{{ old('shaba') }}">
                             </div>
                         </div>
+
+                        {{--malekiat--}}
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label>نوع مالکیت ملکی</label>
@@ -222,6 +254,7 @@
                             </div>
                         </div>
 
+                        {{--meter--}}
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="meter" class="control-label">متراژ</label>
@@ -233,6 +266,7 @@
                     </div>
 
                     <div class="row">
+                        {{--offer--}}
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="percent" class="control-label">میزان تخفیف</label>
@@ -241,6 +275,8 @@
                                        value="{{ old('percent') }}">
                             </div>
                         </div>
+
+                        {{--hesabdari--}}
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label for="hesabdari" class="required control-label">نوع سیستم حسابداری</label>
@@ -249,10 +285,12 @@
                                        value="{{ old('hesabdari') }}">
                             </div>
                         </div>
+
+                        {{--owner service--}}
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="required">امکانات پذیرنده</label>
-                                <select  name="shopServant[]" multiple="multiple" class="select form-control select2"
+                                <select name="shopServant[]" multiple="multiple" class="select form-control select2"
                                         style="width: 100%;">
                                     <option value="1">اینترنت</option>
                                     <option value="2">کامیپوتر</option>
@@ -264,6 +302,7 @@
                             </div>
                         </div>
 
+                        {{--shop service--}}
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label class="required">امکانات فروشگاه</label>

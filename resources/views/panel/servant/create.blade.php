@@ -13,10 +13,10 @@
     <!-- ckeditor -->
     {{--<script src="<?= Url('plugins/ckeditor/ckeditor.js') ?>"></script>--}}
     {{--<script>--}}
-      {{--CKEDITOR.replace('address', {--}}
-        {{--filebrowserUploadUrl: '/admin/panel/upload-image',--}}
-        {{--filebrowserImageUploadUrl: '/admin/panel/upload-image'--}}
-      {{--});--}}
+    {{--CKEDITOR.replace('address', {--}}
+    {{--filebrowserUploadUrl: '/admin/panel/upload-image',--}}
+    {{--filebrowserImageUploadUrl: '/admin/panel/upload-image'--}}
+    {{--});--}}
     {{--</script>--}}
 
     <!-- Select2 -->
@@ -30,6 +30,18 @@
           format: 'YYYY/MM/DD',
         });
       });
+    </script>
+    <script>
+      $(function () {
+        //Initialize Select2 Elements
+        $('.select2').select2()
+      });
+      // $('select').select2({
+      //   placeholder: {
+      //     id: '-1', // the value of the option
+      //     text: 'Select an option'
+      //   }
+      // });
     </script>
 @endsection
 
@@ -49,6 +61,7 @@
                                placeholder="نام پذیرنده را وارد کنید" value="{{ old('userName') }}">
                     </div>
                 </div>
+
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="email" class="control-label">ایمیل پذیرنده</label>
@@ -57,6 +70,7 @@
                                value="{{ old('email') }}">
                     </div>
                 </div>
+
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label for="sex" class="control-label">جنسیت</label>
@@ -88,7 +102,6 @@
                     </div>
                 </div>
 
-
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="mobile" class="control-label">شماره موبایل</label>
@@ -110,7 +123,7 @@
 
             <div class="row">
 
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label for="shaba" class="control-label">شماره شبا</label>
                         <input type="number" class="form-control" name="shaba" id="shaba"
@@ -118,7 +131,8 @@
                                value="{{ old('shaba') }}">
                     </div>
                 </div>
-                <div class="col-sm-4">
+
+                <div class="col-sm-3">
                     <div class="form-group">
                         <label for="codeMelli" class="control-label">کد ملی</label>
                         <input type="number" class="form-control" name="codeMelli" id="codeMelli"
@@ -127,6 +141,18 @@
                     </div>
                 </div>
 
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="required">استان</label>
+                        <select id="province_id" name="province_id" class="form-control select2"
+                                style="width: 100%;">
+                            @php $provinces = \Illuminate\Support\Facades\DB::table('province')->get() @endphp
+                            @foreach($provinces as $province )
+                                <option value="{{$province->id}}">{{$province->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
 
                 <div class="col-sm-2">
                     <div class="form-group">
@@ -137,6 +163,79 @@
                                 <option value="{{$city->id}}" selected="selected">{{$city->name}}</option>
                             @endforeach
                         </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                {{--malekiat--}}
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label>نوع مالکیت ملکی</label>
+                        <select name="typeOwner" class="required form-control select2" style="width: 100%;">
+                            <option value="1" selected="selected"> مالکیت فردی</option>
+                            <option value="2">استیجاری</option>
+                            <option value="3">شراکتی</option>
+                        </select>
+                    </div>
+                </div>
+
+                {{--meter--}}
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="meter" class="control-label">متراژ</label>
+                        <input type="number" class="form-control" name="meter" id="meter"
+                               placeholder="متراژ را وارد کنید"
+                               value="{{ old('meter') }}">
+                    </div>
+                </div>
+
+                {{--owner service--}}
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="required">امکانات پذیرنده</label>
+                        <select name="shopServant[]" multiple="multiple" class="select form-control select2"
+                                style="width: 100%;">
+                            <option value="1">اینترنت</option>
+                            <option value="2">کامیپوتر</option>
+                            <option value="3">گوشی هوشمند</option>
+                            <option value="4">سیستم تحویل</option>
+                            <option value="5">سیستم سیار</option>
+                            <option value="6">سیستم فیش</option>
+                        </select>
+                    </div>
+                </div>
+
+                {{--shop service--}}
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="required">امکانات فروشگاه</label>
+                        <select name="shopService[]" multiple="multiple" class="form-control select2"
+                                style="width: 100%;">
+                            <option value="1"> WIFI اینترنت</option>
+                            <option value="2">پارکینگ</option>
+                            <option value="3">موسیقی زنده</option>
+                            <option value="4">سالن</option>
+                            <option value="6">فضای باز</option>
+                            <option value="7">فضا مراسم خاص</option>
+                            <option value="8">بیرون بر</option>
+                            <option value="9">حق سرویس</option>
+                            <option value="10">مالیات</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+                {{--hesabdari--}}
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="hesabdari" class="required control-label">نوع سیستم حسابداری</label>
+                        <input class="form-control" name="hesabdari" id="hesabdari"
+                               placeholder="نوع سیستم حسابداری را وارد کنید"
+                               value="{{ old('hesabdari') }}">
                     </div>
                 </div>
             </div>
